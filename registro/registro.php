@@ -1,152 +1,108 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="utf-8">
-	<title>Pagina Principal CBMontellano</title>
- 
-        <link rel="stylesheet" href="../style.css">
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="registro.css">
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
-<?php    
-        include_once '../header.php';
-    ?>
-<style type="text/css">
-    #wrapper {
-        width:450px;
-        margin:0 auto;
-        font-family:Verdana, sans-serif;
-    }
-    legend {
-        color:#0481b1;
-        font-size:16px;
-        padding:0 10px;
-        background:#fff;
-        -moz-border-radius:4px;
-        box-shadow: 0 1px 5px rgba(4, 129, 177, 0.5);
-        padding:5px 10px;
-        text-transform:uppercase;
-        font-family:Helvetica, sans-serif;
-        font-weight:bold;
-    }
-    fieldset {
-        border-radius:4px;
-        background: #fff; 
-        background: -moz-linear-gradient(#fff, #f9fdff);
-        background: -o-linear-gradient(#fff, #f9fdff);
-        background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#f9fdff)); /
-        background: -webkit-linear-gradient(#fff, #f9fdff);
-        padding:20px;
-        border-color:rgba(4, 129, 177, 0.4);
-    }
-    input,
-    textarea {
-        color: #373737;
-        background: #fff;
-        border: 1px solid #CCCCCC;
-        color: #aaa;
-        font-size: 14px;
-        line-height: 1.2em;
-        margin-bottom:15px;
-
-        -moz-border-radius:4px;
-        -webkit-border-radius:4px;
-        border-radius:4px;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset, 0 1px 0 rgba(255, 255, 255, 0.2);
-    }
-    input[type="text"],
-    input[type="password"]{
-        padding: 8px 6px;
-        height: 22px;
-        width:280px;
-    }
-    input[type="text"]:focus,
-    input[type="password"]:focus {
-        background:#f5fcfe;
-        text-indent: 0;
-        z-index: 1;
-        color: #373737;
-        -webkit-transition-duration: 400ms;
-        -webkit-transition-property: width, background;
-        -webkit-transition-timing-function: ease;
-        -moz-transition-duration: 400ms;
-        -moz-transition-property: width, background;
-        -moz-transition-timing-function: ease;
-        -o-transition-duration: 400ms;
-        -o-transition-property: width, background;
-        -o-transition-timing-function: ease;
-        width: 380px;
-        
-        border-color:#ccc;
-        box-shadow:0 0 5px rgba(4, 129, 177, 0.5);
-        opacity:0.6;
-    }
-    input[type="submit"]{
-        background: #222;
-        border: none;
-        text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
-        text-transform:uppercase;
-        color: #eee;
-        cursor: pointer;
-        font-size: 15px;
-        margin: 5px 0;
-        padding: 5px 22px;
-        -moz-border-radius: 4px;
-        border-radius: 4px;
-        -webkit-border-radius:4px;
-        -webkit-box-shadow: 0px 1px 2px rgba(0,0,0,0.3);
-        -moz-box-shadow: 0px 1px 2px rgba(0,0,0,0.3);
-        box-shadow: 0px 1px 2px rgba(0,0,0,0.3);
-    }
-    textarea {
-        padding:3px;
-        width:96%;
-        height:100px;
-    }
-    textarea:focus {
-        background:#ebf8fd;
-        text-indent: 0;
-        z-index: 1;
-        color: #373737;
-        opacity:0.6;
-        box-shadow:0 0 5px rgba(4, 129, 177, 0.5);
-        border-color:#ccc;
-    }
-    .small {
-        line-height:14px;
-        font-size:12px;
-        color:#999898;
-        margin-bottom:3px;
-    }
-</style>
 <body>
-    <div id="wrapper">
-        <form action="" method="post">
-            <fieldset>
-                <legend>Nuevo usuario</legend>
-                <div>
-                    <input type="text" name="nombre" placeholder="Nombre"/>
-                </div>
-                <div>
-                    <input type="text" name="last_name" placeholder="Apellidos"/>
-                </div>
-                <div>
-                    <input type="email" name="email" placeholder="Email"/>
-                </div>
-                <div>
-                    <input type="text" name="password" placeholder="Contraseña"/>
-                </div>
-                <div>
-                    <div class="small">this textarea is just for test so you can see the placeholder working on textarea as well</div>
-                    <textarea name="message" placeholder="Message"></textarea>
-                </div>    
-                <input type="submit" name="submit" value="Send"/>
-            </fieldset>    
-        </form>
-    </div>
 
+<div class="container">
+  <?php
+      include_once "../include/header.php";
+  ?>
+<?php if (!isset($_POST["nombre"])) : ?>
+<form method="post">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+  <div class="form-group">
+    <label id="camposregistro">Nombre</label>
+    <input type="text" class="form-control" name="nombre" placeholder="Nombre" required>
+  </div>
+  <div class="form-group">
+    <label>Apellidos</label>
+    <input type="text" class="form-control" name="apellidos" placeholder="Apellidos" required>
+  </div>
+  <div class="form-group">
+    <label>DNI</label>
+    <input type="text" class="form-control" name="dni" maxlength="9" placeholder="DNI" required>
+  </div>
+  <div class="form-group">
+    <label>Fecha nacimiento</label>
+    <input type="date" class="form-control" name="fecha" placeholder="Fecha Nacimiento">
+  </div>
+  <div class="form-group">
+    <label>Telefono</label>
+    <input type="text" class="form-control" name="tfno" maxlength="9" placeholder="Teléfono de contacto">
+  </div>
+  <div class="form-group">
+    <label>Direccion</label>
+    <input type="text" class="form-control" name="direccion" placeholder="Dirección">
+  </div>
+  <div class="form-group">
+    <label>Correo electronico</label>
+    <input type="email" class="form-control" name="email" placeholder="Correo electrónico" required>
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input type="password" class="form-control" name="password" placeholder="Contraseña" required>
+  </div>
+  <div class="row justify-content-center">
+  <button type="submit" class="btn btn-primary">Registrar</button>
+</div>
+</div>
+</div>
+</form>
+
+</div>
+<?php else: ?>
+<?php
+
+//CREATING THE CONNECTION
+$connection = new mysqli("localhost", "juan", "2asirtriana", "cbmontellano");
+$connection->set_charset("uft8");
+
+//TESTING IF THE CONNECTION WAS RIGHT
+if ($connection->connect_errno) {
+    printf("Connection failed: %s\n", $connection->connect_error);
+    exit();
+}
+
+//MAKING A SELECT QUERY
+/* Consultas de selección que devuelven un conjunto de resultados */
+  $query="INSERT INTO usuario (nombre, apellidos, dni, fechanacimiento, telefono, direccion,tipo,password,email)
+        VALUES ('".$_POST['nombre']."','".$_POST['apellidos']."','".$_POST['dni']."','".$_POST['fecha']."','".$_POST['tfno']."',
+        '".$_POST['direccion']."','usuario','".$_POST['password']."','".$_POST['email']."')";
     
-    <?php
-        include_once '../footer.php';
-    
-	?>
+if ($result = $connection->query($query)) {
+
+
+
+
+?>
+
+   
+<?php
+
+
+    //Free the result. Avoid High Memory Usages
+
+    unset($obj);
+    unset($connection);
+
+} //END OF THE IF CHECKING IF THE QUERY WAS RIGHT
+?>
+
+      <?php endif ?>
+
 </body>
 </html>

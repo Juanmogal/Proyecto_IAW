@@ -1,0 +1,26 @@
+
+.picture { 
+    background-color: #F9F9F9;
+    border: 1px solid #CCCCCC; padding: 3px;
+    font: 11px/1.4em Arial, sans-serif; 
+}
+.picture img { 
+    border: 1px solid #CCCCCC;
+    vertical-align:middle; 
+    margin-bottom: 2px;
+}
+.right { 
+    margin: 0.5em 0pt 0.5em 0.8em; 
+    float:right; 
+}
+.left { 
+    margin: 0.5em 0.8em 0.5em 0; 
+    float:left;
+}
+#texto {
+    text-align: center;
+    font: 11px/1.4em Arial, sans-serif; 
+}
+.h1 {
+    text-align: center;
+}
