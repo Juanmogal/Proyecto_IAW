@@ -13,12 +13,15 @@
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <style>
+      body {background-color: #2353B4;}
+    </style>
 </head>
 <body>
 
 <div class="container">
   <?php
-      include_once "../include/header.php";
+      include_once "../header/header.php";
   ?>
 <?php if (!isset($_POST["nombre"])) : ?>
 <form method="post">
@@ -29,31 +32,31 @@
     <input type="text" class="form-control" name="nombre" placeholder="Nombre" required>
   </div>
   <div class="form-group">
-    <label>Apellidos</label>
+    <label id="camposregistro">Apellidos</label>
     <input type="text" class="form-control" name="apellidos" placeholder="Apellidos" required>
   </div>
   <div class="form-group">
-    <label>DNI</label>
+    <label id="camposregistro">DNI</label>
     <input type="text" class="form-control" name="dni" maxlength="9" placeholder="DNI" required>
   </div>
   <div class="form-group">
-    <label>Fecha nacimiento</label>
+    <label id="camposregistro">Fecha nacimiento</label>
     <input type="date" class="form-control" name="fecha" placeholder="Fecha Nacimiento">
   </div>
   <div class="form-group">
-    <label>Telefono</label>
+    <label id="camposregistro">Telefono</label>
     <input type="text" class="form-control" name="tfno" maxlength="9" placeholder="Teléfono de contacto">
   </div>
   <div class="form-group">
-    <label>Direccion</label>
+    <label id="camposregistro">Direccion</label>
     <input type="text" class="form-control" name="direccion" placeholder="Dirección">
   </div>
   <div class="form-group">
-    <label>Correo electronico</label>
+    <label id="camposregistro">Correo electronico</label>
     <input type="email" class="form-control" name="email" placeholder="Correo electrónico" required>
   </div>
   <div class="form-group">
-    <label>Password</label>
+    <label id="camposregistro">Password</label>
     <input type="password" class="form-control" name="password" placeholder="Contraseña" required>
   </div>
   <div class="row justify-content-center">
@@ -81,8 +84,8 @@ if ($connection->connect_errno) {
 /* Consultas de selección que devuelven un conjunto de resultados */
   $query="INSERT INTO usuario (nombre, apellidos, dni, fechanacimiento, telefono, direccion,tipo,password,email)
         VALUES ('".$_POST['nombre']."','".$_POST['apellidos']."','".$_POST['dni']."','".$_POST['fecha']."','".$_POST['tfno']."',
-        '".$_POST['direccion']."','usuario','".$_POST['password']."','".$_POST['email']."')";
-    
+        '".$_POST['direccion']."','usuario',md5('".$_POST['password']."'),'".$_POST['email']."')";
+  
 if ($result = $connection->query($query)) {
 
 

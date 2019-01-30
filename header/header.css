@@ -1,0 +1,54 @@
+
+.header {
+  background: url(../img/bg-header.jpeg) no-repeat center;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+#segundafila {
+
+    height: auto;
+    width: auto;
+}
+#navcbm {
+    color: #000;
+    }
+
+.navbar-brand {
+        color:  #d6d6d6;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 20px;
+}
+#cuadrosmenu {
+    color: white;
+    font-size: 16px;
+
+}
+
+#cuadrosmenu:hover{
+    background-color: white;
+    color: black;
+}
+#fotoscargos {
+    width: 400px; 
+    height: 400px;
+}
+#textocargos {
+    font-size: 10px;
+    color: white;
+}
+
+.imagenes{
+    background-color: #ffffff;
+    padding: 5px 10px 5px 10px;
+    margin:2px;
+    float:left;
+    width:200px;
+    text-align:center;
+    }
+
+
+
+
+
+    

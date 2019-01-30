@@ -5,7 +5,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="../include/header.css">
+<link rel="stylesheet" href="style.css">
 <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -20,7 +20,7 @@
 <body>
 <div class="container">
   <?php
-      include_once "headeradmin.php";
+      include_once "../header/headeradmin.php";
   ?>
         <?php
   //CREATING THE CONNECTION
@@ -57,32 +57,32 @@
   <div class="row justify-content-center">
     <div class="col-md-5">
   <div class="form-group">
-    <label>Nombre</label>
+    <label id="camposregistro">Nombre</label>
     <input type="text" class="form-control" name="nom" value="<?php echo "$obj->nombre" ?>" required>
   </div>
   <div class="form-group">
-    <label>Apellidos</label>
+    <label id="camposregistro">Apellidos</label>
     <input type="text" class="form-control" name="ape" value="<?php echo "$obj->apellidos" ?>" required>
   </div>
   <div class="form-group">
-    <label>DNI</label>
+    <label id="camposregistro">DNI</label>
     <input type="text" class="form-control" name="dni" maxlength="9" value="<?php echo "$obj->dni" ?>" required>
   </div>
   <div class="form-group">
-    <label>Fecha nacimiento</label>
+    <label id="camposregistro">Fecha nacimiento</label>
     <input type="date" class="form-control" name="fec" value="<?php echo "$obj->fechanacimiento" ?>">
   </div>
   <div class="form-group">
-    <label>Telefono</label>
+    <label id="camposregistro">Telefono</label>
     <input type="text" class="form-control" name="tfno" maxlength="9" value="<?php echo "$obj->telefono" ?>">
   </div>
   <div class="form-group">
-    <label>Direccion</label>
+    <label id="camposregistro">Direccion</label>
     <input type="text" class="form-control" name="dir" value="<?php echo "$obj->direccion" ?>">
   </div>
   <div>
-    <label>Foto personal</label>
-    <input type="file" name="image" required />
+    <label id="camposregistro">Foto personal</label>
+    <input type="file" name="image"/>
   </div>
   <br>
   <div class="row justify-content-center">
@@ -115,12 +115,11 @@
     /* Consultas de selección que devuelven un conjunto de resultados */
     $query="UPDATE jugador SET nombre='".$_POST['nom']."',apellidos='".$_POST['ape']."',
     dni='".$_POST['dni']."',fechanacimiento='".$_POST['fec']."',telefono='".$_POST['tfno']."',direccion='".$_POST['dir']."' WHERE idjugador = '".$_GET['id']."'";
-    echo $query;
+    
 if ($result = $connection->query($query)) {
-    echo 'Datos actualizados';
+    
 
 }
-header('Location:jugadores.php');
 ?>
 
 <?php endif ?>

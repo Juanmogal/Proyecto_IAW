@@ -31,7 +31,7 @@ CREATE TABLE `entrena` (
   KEY `idequipo` (`idequipo`),
   CONSTRAINT `entrena_ibfk_1` FOREIGN KEY (`idtemporada`) REFERENCES `temporada` (`idtemporada`),
   CONSTRAINT `entrena_ibfk_2` FOREIGN KEY (`identrenador`) REFERENCES `entrenador` (`identrenador`) ON UPDATE CASCADE ON DELETE CASCADE,
-  CONSTRAINT `entrena_ibfk_3` FOREIGN KEY (`idequipo`) REFERENCES `equipo` (`idequipo`)
+  CONSTRAINT `entrena_ibfk_3` FOREIGN KEY (`idequipo`) REFERENCES `equipo` (`idequipo`) ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -145,7 +145,7 @@ CREATE TABLE `pertenece` (
   KEY `idequipo` (`idequipo`),
   CONSTRAINT `pertenece_ibfk_1` FOREIGN KEY (`idjugador`) REFERENCES `jugador` (`idjugador`) ON UPDATE CASCADE ON DELETE CASCADE,
   CONSTRAINT `pertenece_ibfk_2` FOREIGN KEY (`idtemporada`) REFERENCES `temporada` (`idtemporada`),
-  CONSTRAINT `pertenece_ibfk_3` FOREIGN KEY (`idequipo`) REFERENCES `equipo` (`idequipo`)
+  CONSTRAINT `pertenece_ibfk_3` FOREIGN KEY (`idequipo`) REFERENCES `equipo` (`idequipo`) ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
