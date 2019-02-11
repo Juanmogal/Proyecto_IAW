@@ -1,36 +1,41 @@
-    <div id="header" class="row">
-				<div class="col-md-12">
-					<img src="../header/cbm.png" class="img-fluid">
-				</div>
-    </div>
-
-
-    
-    <div id="nav" class="row">
-        <div class="col-md-12">
-          <nav class="navbar navbar-inverse ">
-            <div class="navbar-header">
-              <a class="navbar-brand" href="">C.B.Montellano</a>
-            </div>
-            <ul class="nav navbar-nav">
-              <li><a href="jugadores.php" id="cuadrosmenu">Jugadores</a></li>
-              <li><a href="equipos.php" id="cuadrosmenu">Equipos</a></li>
-              <li><a href="entrenadores.php" id="cuadrosmenu">Entrenadores</a></li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Añadir
-                </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="añadirjugador.php" id="cuadrosmenu">Jugador</a>
-                    <a class="dropdown-item" href="añadirequipo.php" id="cuadrosmenu">Equipo</a>
-                    <a class="dropdown-item" href="añadirentrenador.php" id="cuadrosmenu">Entrenadores</a>
-                  </div>
-              </li>
-              <li><a href="cerrarsesion.php" id="cuadrosmenu">Cerrar sesion</a></li>
-              
-            </ul>
+<!-- Barra cabecera -->
+<div class="sticky-top">
+    <header class="topbar">
+      <nav class="navbar navbar-expand-lg navbar-dark mx-background-top-linear">
         
-   </nav>
-        </div> 
-    </div>
+        <a class="navbar-brand" href="index.html"><img src="../login/logo.png" width="60" height="80"/></a>
+        <a class="navbar-brand" href="index.html" id="textocabecera">C.B.MONTELLANO</a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
 
+          <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item">
+              <a class="nav-link" href="../paginaprincipal/indexusuario.php">Home</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="../admin/jugadores.php">Jugadores</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="../admin/entrenadores.php">Entrenadores</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="../admin/equipos.php">Equipos</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="../admin/cerrarsesion.php">Cerrar sesion</a>
+            </li>
+
+          </ul>
+        </div>
+      
+    </nav>
+  </header>
+</div>

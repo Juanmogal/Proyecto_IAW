@@ -16,7 +16,7 @@ align-content: center;
 }
 
 .card{
-height: 330px;
+height: 370px;
 margin-top: auto;
 margin-bottom: auto;
 width: 400px;
@@ -57,7 +57,17 @@ box-shadow: 0 0 0 0 !important;
 
 }
 
+.remember{
+color: white;
+}
 
+.remember input
+{
+width: 20px;
+height: 20px;
+margin-left: 15px;
+margin-right: 5px;
+}
 
 .login_btn{
 color: black;
@@ -76,7 +86,4 @@ color: white;
 
 .links a{
 margin-left: 4px;
-}
-#registrate{
-    color: white;
 }

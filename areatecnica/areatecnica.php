@@ -21,7 +21,7 @@
 <body>
 <div class="container"><div class="container">
     <?php
-        include_once "../include/header.php";
+        include_once "../header/header.php";
     ?>
      <?php
   //CREATING THE CONNECTION

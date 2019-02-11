@@ -1,34 +1,8 @@
 #tabla {
     text-align: center;
-    color: white;
-    border: double;
+    color: black;
     font-family: 'Times New Roman', Times, serif;
     font-weight: normal;
-    font-size: 18px;
+   
+    margin-bottom: 240px;
 }
-
-#camposregistro{
-    color:white;
-}
-/*STYLE CSS*/
-
-.header {
-    background: url(../img/bg-header.jpeg) no-repeat center;
-    background-size: cover;
-    min-height: 100vh;
-  }
-  
-  #segundafila {
-  
-      height: auto;
-      width: auto;
-  }
-  #navcbm {
-      color: #000;
-      }
-  
-  .navbar-brand {
-          color:  #d6d6d6;
-          font-family: 'Courier New', Courier, monospace;
-          font-size: 20px;
-  }

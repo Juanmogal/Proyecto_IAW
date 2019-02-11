@@ -8,17 +8,14 @@
     //SHOW SESSION DATA
     var_dump($_SESSION);
   
-  if ($_SESSION["email"] == "admin@admin") {
-    header("Location: admin/jugadores.php");
+  if ($_SESSION["tipo"] == "admin") {
+    header("Location: paginaprincipal/paginaprincipaladmin.php");
     
   } else {
-    header("Location: areatecnica/areatecnica.php");
+    header("Location: paginaprincipal/paginaprincipalusuario.php");
   }
-  
-  
+
   } 
-  
-  
   else {
     session_destroy();
    header("Location: login/login.php");    

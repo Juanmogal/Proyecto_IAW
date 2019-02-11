@@ -26,49 +26,41 @@
 
 <?php
       session_start();
-
         //FORM SUBMITTED
         if (isset($_POST["email"])) {
-
           //CREATING THE CONNECTION
           $connection = new mysqli("localhost", "juan", "2asirtriana", "cbmontellano");
-
           //TESTING IF THE CONNECTION WAS RIGHT
           if ($connection->connect_errno) {
               printf("Connection failed: %s\n", $connection->connect_error);
               exit();
           }
-
           //MAKING A SELECT QUERY
           //Password coded with md5 at the database. Look for better options
           $consulta="select * from usuario where
           email='$_POST[email]' and password=md5('$_POST[password]')";
           
-
           //Test if the query was correct
           //SQL Injection Possible
           //Check http://php.net/manual/es/mysqli.prepare.php for more security
           if ($result = $connection->query($consulta)) {
-
               //No rows returned
               if ($result->num_rows===0) {
-
                 echo "<script type='text/javascript'>alert('El correo o contraseña introducidos son incorrectos');</script>";    
            
             } else {
-                  
+                 while($obj = $result->fetch_object()) {
                 //VALID LOGIN. SETTING SESSION VARS
                 $_SESSION["email"]=$_POST["email"];
                 $_SESSION["password"]=$_POST["password"];
-                
+                $_SESSION["tipo"]=$obj->tipo;
+                }
                 header("Location: ../index.php");
               }
-
           } else {
             echo "Wrong Query";
           }
       } 
-
     ?>
 <!--LOGIN-->
 <div class="container">
