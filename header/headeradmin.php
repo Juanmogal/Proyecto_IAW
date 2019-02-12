@@ -14,7 +14,7 @@
           <ul class="navbar-nav ml-auto">
 
             <li class="nav-item">
-              <a class="nav-link" href="../paginaprincipal/indexusuario.php">Home</a>
+              <a class="nav-link" href="../paginaprincipal/paginaprincipaladmin.php">Home</a>
             </li>
 
             <li class="nav-item">
