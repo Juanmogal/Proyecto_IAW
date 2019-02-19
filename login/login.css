@@ -56,19 +56,6 @@ outline: 0 0 0 0  !important;
 box-shadow: 0 0 0 0 !important;
 
 }
-
-.remember{
-color: white;
-}
-
-.remember input
-{
-width: 20px;
-height: 20px;
-margin-left: 15px;
-margin-right: 5px;
-}
-
 .login_btn{
 color: black;
 background-color: #FFC312;
@@ -86,4 +73,11 @@ color: white;
 
 .links a{
 margin-left: 4px;
+}
+#registrate{
+    color: #FFC312;
+    font-size: 18;
+}
+#textologin{
+    font-size: 18;
 }

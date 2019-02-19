@@ -30,6 +30,10 @@
             </li>
 
             <li class="nav-item">
+              <a class="nav-link" href="../admin/usuarios.php">Usuarios</a>
+            </li>
+
+            <li class="nav-item">
               <a class="nav-link" href="../admin/cerrarsesion.php">Cerrar sesion</a>
             </li>
 

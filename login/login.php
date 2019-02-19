@@ -96,10 +96,10 @@
 			</div>
 			<div class="card-footer">
 				<div class="d-flex justify-content-center links">
-					¿Aún no perteneces a nuestro club?
+					<a id="textologin">¿Aún no perteneces a nuestro club?</a>
                 </div>
-                <div class="d-flex justify-content-center links" id="registrate">
-                    <a href="../registro/registro.php">Regístrate</a>
+                <div class="d-flex justify-content-center links">
+                    <a href="../registro/registro.php" id="registrate">Regístrate</a>
                 </div>
 			</div>
 		</div>

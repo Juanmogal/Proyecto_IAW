@@ -40,29 +40,25 @@
 
       //MAKING A SELECT QUERY
       /* Consultas de selección que devuelven un conjunto de resultados */
-        $query="SELECT * from jugador";
+        $query="SELECT * from usuario";
       if ($result = $connection->query($query)) {
       ?>
-      <div class="row" id="añadir">
-        <div class="col-md-3">
-          <a href="anadirjugador.php">
-            <img src="añadir.svg" width="40" height="40">
-          </a>
-        </div>
-      </div>
       <div class="row justify-content-center">
-      <div class="col-md-10"> 
+        
           <!-- PRINT THE TABLE AND THE HEADER -->
           <table class="table table-hover" id="tabla">
           <thead>
             <tr>
-              <th scope="col">IdJugador</th>
+              <th scope="col">IdUsuario</th>
               <th scope="col">Nombre</th>
               <th scope="col">Apellidos</th>
               <th scope="col">DNI</th>
               <th scope="col">Fecha nacimiento</th>
               <th scope="col">Telefono</th>
               <th scope="col">Direccion</th>
+              <th scope="col">Tipo</th>
+              <th scope="col">Email</th>
+              <th scope="col">Contraseña</th>
               <th scope="col"></th>
               <th scope="col"></th>
             </tr>
@@ -76,15 +72,18 @@
           while($obj = $result->fetch_object()) {
               //PRINTING EACH ROW
               echo "<tr>";
-                echo "<td>".$obj->idjugador."</td>";
+                echo "<td>".$obj->idusuario."</td>";
                 echo "<td>".$obj->nombre."</td>";
                 echo "<td>".$obj->apellidos."</td>";
                 echo "<td>".$obj->dni."</td>";
                 echo "<td>".$obj->fechanacimiento."</td>";
                 echo "<td>".$obj->telefono."</td>";
                 echo "<td>".$obj->direccion."</td>";
-                echo "<td><a href='editarjugador.php?id=$obj->idjugador'><img src='editar2.png' width='35px' height='35px'/></a></td>";
-                echo "<td><a href='eliminarjugador.php?id=$obj->idjugador'><img src='borrar2.png' width='35px' height='35px'/></a></td>";
+                echo "<td>".$obj->tipo."</td>";
+                echo "<td>".$obj->email."</td>";
+                echo "<td>".$obj->password."</td>";
+                echo "<td><a href='editarusuario.php?id=$obj->idusuario'><img src='editar2.png' width='35px' height='35px'/></a></td>";
+                echo "<td><a href='eliminarusuario.php?id=$obj->idusuario'><img src='borrar2.png' width='35px' height='35px'/></a></td>";
               echo "</tr>";
             
           }
@@ -100,7 +99,7 @@
     ?>
     </tbody>
     </table>
-    </div>
+    
     </div>
     
     
@@ -108,3 +107,4 @@
     </div>
   </body>
 </html>
+

@@ -18,15 +18,15 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="../admin/jugadores.php">Jugadores</a>
+              <a class="nav-link" href="">Jugadores</a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="../admin/entrenadores.php">Entrenadores</a>
+              <a class="nav-link" href="">Entrenadores</a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="../admin/equipos.php">Equipos</a>
+              <a class="nav-link" href="">Equipos</a>
             </li>
 
             <li class="nav-item">

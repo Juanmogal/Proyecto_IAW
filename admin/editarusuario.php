@@ -21,7 +21,7 @@
 <div class="container"> <!-- Inicio container -->
 <!--Include cabecera-->
 <?php
-    include_once "../header/headeradmin.php";
+   include_once "../header/headeradmin.php";
 ?>
 <!--Fin include cabecera-->
         <?php
@@ -43,52 +43,70 @@
 
 //CREACION VARIABLE GET
 
-    ?>
+
+
+//MAKING A SELECT QUERY
+/* Consultas de selección que devuelven un conjunto de resultados */
+     $query="SELECT * from usuario WHERE idusuario='".$_GET['id']."'";
+
+    if ($result = $connection->query($query)) {
+        $obj = $result->fetch_object();
     
-      
-    <form method="post">
+    }
+
+    ?>
+<form method="post">
   <div class="row justify-content-center">
     <div class="col-md-5">
   <div class="form-group">
-    <label>Nombre</label>
-    <input type="text" class="form-control" name="nom" required>
+    <label id="camposregistro">Nombre</label>
+    <input type="text" class="form-control" name="nom" value="<?php echo "$obj->nombre" ?>" required>
   </div>
   <div class="form-group">
-    <label>Apellidos</label>
-    <input type="text" class="form-control" name="ape" required>
+    <label id="camposregistro">Apellidos</label>
+    <input type="text" class="form-control" name="ape" value="<?php echo "$obj->apellidos" ?>" required>
   </div>
   <div class="form-group">
-    <label>DNI</label>
-    <input type="text" class="form-control" name="dni" maxlength="9" required>
+    <label id="camposregistro">DNI</label>
+    <input type="text" class="form-control" name="dni" maxlength="9" value="<?php echo "$obj->dni" ?>" required>
   </div>
   <div class="form-group">
-    <label>Fecha nacimiento</label>
-    <input type="date" class="form-control" name="fec">
+    <label id="camposregistro">Fecha nacimiento</label>
+    <input type="date" class="form-control" name="fec" value="<?php echo "$obj->fechanacimiento" ?>">
   </div>
   <div class="form-group">
-    <label>Número de licencia</label>
-    <input type="text" class="form-control" name="num">
+    <label id="camposregistro">Telefono</label>
+    <input type="text" class="form-control" name="tfno" maxlength="9" value="<?php echo "$obj->telefono" ?>">
   </div>
   <div class="form-group">
-    <label>Telefono</label>
-    <input type="text" class="form-control" name="tfno" maxlength="9">
+    <label id="camposregistro">Direccion</label>
+    <input type="text" class="form-control" name="dir" value="<?php echo "$obj->direccion" ?>">
   </div>
   <div class="form-group">
-    <label>Direccion</label>
-    <input type="text" class="form-control" name="dir">
+    <label id="camposregistro">Tipo</label>
+    <input type="text" class="form-control" name="tip" value="<?php echo "$obj->tipo" ?>" required>
+  </div>
+  <div class="form-group">
+    <label id="camposregistro">Email</label>
+    <input type="text" class="form-control" name="email" value="<?php echo "$obj->email" ?>" required>
+  </div>
+  <div class="form-group">
+    <label id="camposregistro">Contraseña</label>
+    <input type="text" class="form-control" name="passw" value="<?php echo "$obj->password" ?>" required>
   </div>
   <div>
-    <label>Foto personal</label>
+    <label id="camposregistro">Foto personal</label>
     <input type="file" name="image"/>
   </div>
   <br>
   <div class="row justify-content-center">
-  <button type="submit" class="btn btn-primary">Añadir</button>
-  </div>
+  <button type="submit" class="btn btn-primary">Editar</button>
+</div>
 </div>
 </div>
 </form>
 
+      <!-- DATA IN $_POST['mail']. Coming from a form submit -->
 
      
       <?php else: ?>
@@ -105,16 +123,21 @@
         exit();
     }
    
+
+
     //MAKING A SELECT QUERY
     /* Consultas de selección que devuelven un conjunto de resultados */
-    $query="INSERT INTO entrenador (nombre, apellidos, dni, fechanacimiento, numerolicencia, telefono, direccion)
-            VALUES ('".$_POST['nom']."','".$_POST['ape']."','".$_POST['dni']."','".$_POST['fec']."','".$_POST['num']."','".$_POST['tfno']."','".$_POST['dir']."')";
-    echo $query;
+    $query="UPDATE usuario SET nombre='".$_POST['nom']."',apellidos='".$_POST['ape']."',
+    dni='".$_POST['dni']."',fechanacimiento='".$_POST['fec']."',telefono='".$_POST['tfno']."',
+    direccion='".$_POST['dir']."',tipo='".$_POST['tip']."',email='".$_POST['email']."',
+    password=md5('".$_POST['passw']."') WHERE idusuario = '".$_GET['id']."'";
+    
 if ($result = $connection->query($query)) {
     
 
 }
-header('Location:entrenadores.php');
+
+header('Location:usuarios.php');
 ?>
 
 <?php endif ?>

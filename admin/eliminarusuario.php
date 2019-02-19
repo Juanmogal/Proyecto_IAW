@@ -24,53 +24,8 @@
     include_once "../header/headeradmin.php";
 ?>
 <!--Fin include cabecera-->
-        <?php
-  //CREATING THE CONNECTION
-        $connection = new mysqli("localhost", "juan", "2asirtriana", "cbmontellano");
-        $connection->set_charset("uft8");
-
-//TESTING IF THE CONNECTION WAS RIGHT
-    if ($connection->connect_errno) {
-        printf("Connection failed: %s\n", $connection->connect_error);
-    exit();
-        }
-
-    ?>
-      <?php if (!isset($_POST["nom"])) : ?>
-        
-       <?php 
-      
-
-//CREACION VARIABLE GET
-
-    ?>
-    
-      
-    <form method="post">
-  <div class="row justify-content-center">
-    <div class="col-md-5">
-  <div class="form-group">
-    <label>Nombre</label>
-    <input type="text" class="form-control" name="nom" required>
-  </div>
-  <div>
-    <label>Foto equipo</label>
-    <input type="file" name="image"/>
-  </div>
-  <br>
-  <div class="row justify-content-center">
-  <button type="submit" class="btn btn-primary">Añadir</button>
-  </div>
-</div>
-</div>
-</form>
-
-
      
-      <?php else: ?>
-         
-      <?php
-
+     <?php
 
     $connection = new mysqli("localhost", "juan", "2asirtriana", "cbmontellano");
     $connection->set_charset("uft8");
@@ -83,17 +38,19 @@
    
     //MAKING A SELECT QUERY
     /* Consultas de selección que devuelven un conjunto de resultados */
-    $query="INSERT INTO equipo (nombre)
-            VALUES ('".$_POST['nom']."')";
+    $query="DELETE FROM usuario WHERE idusuario = '".$_GET['id']."'";
+
+
+
     echo $query;
 if ($result = $connection->query($query)) {
-    
+    echo 'Datos actualizados';
 
 }
-header('Location:equipos.php');
+header('Location: usuarios.php');
 ?>
 
-<?php endif ?>
+
 
 </div>
     
