@@ -91,39 +91,6 @@ header .navbar {
     padding-left: 18px;
 }
 
-ul.social-network {
-  border:none;
-  margin:0;
-  padding:0;
-}
-
-ul.social-network li {
-  border:none;  
-  margin:0;
-}
-
-ul.social-network li i {
-  margin:0;
-}
-
-ul.social-network li {
-    display:inline;
-    margin: 0 5px;
-    border: 0px solid #2D2D2D;
-    padding: 5px 0 0;
-    width: 32px;
-    display: inline-block;
-    text-align: center;
-    height: 32px;
-    vertical-align: baseline;
-    color: #000;
-}
-
-ul.social-network {
-  list-style: none;
-  margin: 5px 0 10px -25px;
-  float: right;
-}
 
 .waves-effect {
     position: relative;
