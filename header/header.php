@@ -18,7 +18,7 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="">Jugadores</a>
+              <a class="nav-link" href="../usuario/jugadores.php">Jugadores</a>
             </li>
 
             <li class="nav-item">
@@ -30,7 +30,7 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="../admin/cerrarsesion.php">Cerrar sesion</a>
+              <a class="nav-link" href="../admin/cerrarsesion.php"><img src="../header/logout.png" width='35px' height='35px'/></a>
             </li>
 
           </ul>

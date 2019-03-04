@@ -111,10 +111,6 @@
     </table>
     </div>
     </div>
-    
-<?php
-    include_once "../footer/footer.php";
-?>
     </div>
   </body>
 </html>

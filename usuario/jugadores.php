@@ -1,10 +1,7 @@
-<?php
-      include_once "../session/sessionadmin.php";
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="utf-8">
+<meta charset="utf-8">
   <title>index</title>
   <!--Librerias de Boostrap-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">  
@@ -21,7 +18,7 @@
 <div class="container"> <!-- Inicio container -->
 <!--Include cabecera-->
 <?php
-    include_once "../header/headeradmin.php";
+    include_once "../header/header.php";
 ?>
 <!--Fin include cabecera-->
 
@@ -40,32 +37,29 @@
 
       //MAKING A SELECT QUERY
       /* Consultas de selección que devuelven un conjunto de resultados */
-        $query="SELECT * from usuario";
+        $query="SELECT * from jugador";
       if ($result = $connection->query($query)) {
       ?>
       <div class="row" id="añadir">
         <div class="col-md-3">
-          <a href="anadirusuario.php">
+          <a href="anadirjugador.php">
             <img src="añadir.svg" width="40" height="40">
           </a>
         </div>
       </div>
       <div class="row justify-content-center">
-      <div class="col-md-14"> 
+      <div class="col-md-10"> 
           <!-- PRINT THE TABLE AND THE HEADER -->
-          <table class="table table-hover table-bordered" id="tablausuarios">
+          <table class="table table-hover table-bordered" id="tabla">
           <thead>
             <tr>
-              <th scope="col">IdUsuario</th>
+              <th scope="col">IdJugador</th>
               <th scope="col">Nombre</th>
               <th scope="col">Apellidos</th>
               <th scope="col">DNI</th>
               <th scope="col">Fecha nacimiento</th>
               <th scope="col">Telefono</th>
               <th scope="col">Direccion</th>
-              <th scope="col">Tipo</th>
-              <th scope="col">Contraseña</th>
-              <th scope="col">Email</th>
               <th scope="col"></th>
               <th scope="col"></th>
             </tr>
@@ -79,18 +73,15 @@
           while($obj = $result->fetch_object()) {
               //PRINTING EACH ROW
               echo "<tr>";
-                echo "<td>".$obj->idusuario."</td>";
+                echo "<td>".$obj->idjugador."</td>";
                 echo "<td>".$obj->nombre."</td>";
                 echo "<td>".$obj->apellidos."</td>";
                 echo "<td>".$obj->dni."</td>";
                 echo "<td>".$obj->fechanacimiento."</td>";
                 echo "<td>".$obj->telefono."</td>";
                 echo "<td>".$obj->direccion."</td>";
-                echo "<td>".$obj->tipo."</td>";
-                echo "<td>".$obj->password."</td>";
-                echo "<td>".$obj->email."</td>";
-                echo "<td><a href='editarusuario.php?id=$obj->idusuario'><img src='editar2.png' width='35px' height='35px'/></a></td>";
-                echo "<td><a href='eliminarusuario.php?id=$obj->idusuario'><img src='borrar2.png' width='35px' height='35px'/></a></td>";
+                echo "<td><a href='editarjugador.php?id=$obj->idjugador'><img src='editar2.png' width='35px' height='35px'/></a></td>";
+                echo "<td><a href='eliminarjugador.php?id=$obj->idjugador'><img src='borrar2.png' width='35px' height='35px'/></a></td>";
               echo "</tr>";
             
           }
