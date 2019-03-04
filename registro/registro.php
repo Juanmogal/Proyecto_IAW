@@ -22,7 +22,7 @@
   <div class="container">
   <!--Include cabecera-->
     <?php
-      include_once "../header/headeradmin.php";
+      include_once "../header/headerregistro.php";
     ?>
 <?php if (!isset($_POST["nombre"])) : ?>
 <form method="post">
@@ -73,7 +73,7 @@
 
 //CREATING THE CONNECTION
 $connection = new mysqli("localhost", "juan", "2asirtriana", "cbmontellano");
-$connection->set_charset("uft8");
+$connection->set_charset("utf8");
 
 //TESTING IF THE CONNECTION WAS RIGHT
 if ($connection->connect_errno) {

@@ -30,7 +30,7 @@
 
       //CREATING THE CONNECTION
       $connection = new mysqli("localhost", "juan", "2asirtriana", "cbmontellano");
-      $connection->set_charset("uft8");
+      $connection->set_charset("utf8");
 
       //TESTING IF THE CONNECTION WAS RIGHT
       if ($connection->connect_errno) {
@@ -43,10 +43,17 @@
         $query="SELECT * from usuario";
       if ($result = $connection->query($query)) {
       ?>
+      <div class="row" id="añadir">
+        <div class="col-md-3">
+          <a href="anadirusuario.php">
+            <img src="añadir.svg" width="40" height="40">
+          </a>
+        </div>
+      </div>
       <div class="row justify-content-center">
-        
+      <div class="col-md-12"> 
           <!-- PRINT THE TABLE AND THE HEADER -->
-          <table class="table table-hover" id="tabla">
+          <table class="table table-hover table-bordered" id="tablausuarios">
           <thead>
             <tr>
               <th scope="col">IdUsuario</th>
@@ -57,8 +64,8 @@
               <th scope="col">Telefono</th>
               <th scope="col">Direccion</th>
               <th scope="col">Tipo</th>
-              <th scope="col">Email</th>
               <th scope="col">Contraseña</th>
+              <th scope="col">Email</th>
               <th scope="col"></th>
               <th scope="col"></th>
             </tr>
@@ -80,8 +87,8 @@
                 echo "<td>".$obj->telefono."</td>";
                 echo "<td>".$obj->direccion."</td>";
                 echo "<td>".$obj->tipo."</td>";
-                echo "<td>".$obj->email."</td>";
                 echo "<td>".$obj->password."</td>";
+                echo "<td>".$obj->email."</td>";
                 echo "<td><a href='editarusuario.php?id=$obj->idusuario'><img src='editar2.png' width='35px' height='35px'/></a></td>";
                 echo "<td><a href='eliminarusuario.php?id=$obj->idusuario'><img src='borrar2.png' width='35px' height='35px'/></a></td>";
               echo "</tr>";
@@ -99,7 +106,7 @@
     ?>
     </tbody>
     </table>
-    
+    </div>
     </div>
     
     
@@ -107,4 +114,3 @@
     </div>
   </body>
 </html>
-

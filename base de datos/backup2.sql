@@ -29,7 +29,7 @@ CREATE TABLE `entrena` (
   PRIMARY KEY (`idtemporada`,`identrenador`,`idequipo`),
   KEY `identrenador` (`identrenador`),
   KEY `idequipo` (`idequipo`),
-  CONSTRAINT `entrena_ibfk_1` FOREIGN KEY (`idtemporada`) REFERENCES `temporada` (`idtemporada`),
+  CONSTRAINT `entrena_ibfk_1` FOREIGN KEY (`idtemporada`) REFERENCES `temporada` (`idtemporada`) ON UPDATE CASCADE ON DELETE CASCADE,
   CONSTRAINT `entrena_ibfk_2` FOREIGN KEY (`identrenador`) REFERENCES `entrenador` (`identrenador`) ON UPDATE CASCADE ON DELETE CASCADE,
   CONSTRAINT `entrena_ibfk_3` FOREIGN KEY (`idequipo`) REFERENCES `equipo` (`idequipo`) ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -144,7 +144,7 @@ CREATE TABLE `pertenece` (
   KEY `idtemporada` (`idtemporada`),
   KEY `idequipo` (`idequipo`),
   CONSTRAINT `pertenece_ibfk_1` FOREIGN KEY (`idjugador`) REFERENCES `jugador` (`idjugador`) ON UPDATE CASCADE ON DELETE CASCADE,
-  CONSTRAINT `pertenece_ibfk_2` FOREIGN KEY (`idtemporada`) REFERENCES `temporada` (`idtemporada`),
+  CONSTRAINT `pertenece_ibfk_2` FOREIGN KEY (`idtemporada`) REFERENCES `temporada` (`idtemporada`) ON UPDATE CASCADE ON DELETE CASCADE,
   CONSTRAINT `pertenece_ibfk_3` FOREIGN KEY (`idequipo`) REFERENCES `equipo` (`idequipo`) ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -213,7 +213,8 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'fdfds','fdsfdf','45855554a','2019-01-09','666666666','gfgfgdf','usuario','12345','juan_moreno_g@hotmail.com'),(2,'juan','moreno','45855554a','2019-01-17','688888888','gfgfgdf','usuario','12345','juan_moreno_g@hotmail.com'),(3,'juan','moreno','45855554a','2019-01-17','688888888','gfgfgdf','usuario','1','juan_moreno_g@hotmail.com'),(4,'pepe','moreno','45855554a','2019-01-17','688888888','gfgfgdf','usuario','1','juan_moreno_g@hotmail.com'),(5,'pepe','moreno','45855554a','2019-01-17','688888888','gfgfgdf','usuario','1','juan_moreno_g@hotmail.com'),(6,'Manue','Lebrato','4455','2019-01-11','666666666','gfgfgdf','usuario','12345','lebrato@gmail.com');
+INSERT INTO `usuario` VALUES (1,'fdfds','fdsfdf','45855554a','2019-01-09','666666666','gfgfgdf','usuario','12345','juan_moreno_g@hotmail.com'),(2,'juan','moreno','45855554a','2019-01-17','688888888','gfgfgdf','usuario','12345','juan_moreno_g@hotmail.com'),(3,'juan','moreno','45855554a','2019-01-17','688888888','gfgfgdf','usuario','1','juan_moreno_g@hotmail.com'),(4,'pepe','moreno','45855554a','2019-01-17','688888888','gfgfgdf','usuario','1','juan_moreno_g@hotmail.com'),(5,'pepe','moreno','45855554a','2019-01-17','688888888','gfgfgdf','usuario','1','juan_moreno_g@hotmail.com'),
+(6,'Manue','Lebrato','4455','2019-01-11','666666666','gfgfgdf','usuario','12345','lebrato@gmail.com');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

@@ -36,7 +36,7 @@
         }
 
     ?>
-      <?php if (!isset($_POST["ano"])) : ?>
+      <?php if (!isset($_POST["dni"])) : ?>
         
        <?php 
       
@@ -44,20 +44,38 @@
 //CREACION VARIABLE GET
 
     ?>
+    
+      
     <form method="post">
   <div class="row justify-content-center">
     <div class="col-md-5">
   <div class="form-group">
-    <label>Años</label>
-    <input type="text" class="form-control" name="ano" placeholder="Ejemplo: 2015/2016" required>
+    <label>Nombre</label>
+    <input type="text" class="form-control" name="nom" required>
   </div>
   <div class="form-group">
-    <label>Fecha de inicio</label>
-    <input type="date" class="form-control" name="inicio" required>
+    <label>Apellidos</label>
+    <input type="text" class="form-control" name="ape" required>
   </div>
   <div class="form-group">
-    <label>Fecha de fin</label>
-    <input type="date" class="form-control" name="fin" required>
+    <label>DNI</label>
+    <input type="text" class="form-control" name="dni" maxlength="9" required>
+  </div>
+  <div class="form-group">
+    <label>Fecha nacimiento</label>
+    <input type="date" class="form-control" name="fec">
+  </div>
+  <div class="form-group">
+    <label>Telefono</label>
+    <input type="text" class="form-control" name="tfno" maxlength="9">
+  </div>
+  <div class="form-group">
+    <label>Direccion</label>
+    <input type="text" class="form-control" name="dir">
+  </div>
+  <div>
+    <label>Foto personal</label>
+    <input type="file" name="image"/>
   </div>
   <br>
   <div class="row justify-content-center">
@@ -73,6 +91,8 @@
          
       <?php
 
+        
+
 
     $connection = new mysqli("localhost", "juan", "2asirtriana", "cbmontellano");
     $connection->set_charset("utf8");
@@ -82,18 +102,18 @@
         printf("Connection failed: %s\n", $connection->connect_error);
         exit();
     }
+    
    
     //MAKING A SELECT QUERY
     /* Consultas de selección que devuelven un conjunto de resultados */
-    $query="INSERT INTO temporada (nombre,fechainicio,fechafin)
-            VALUES ('".$_POST['ano']."','".$_POST['inicio']."','".$_POST['fin']."')";
+    $query="INSERT INTO jugador (nombre, apellidos, dni, fechanacimiento, telefono, direccion)
+            VALUES ('".$_POST['nom']."','".$_POST['ape']."','".$_POST['dni']."','".$_POST['fec']."','".$_POST['tfno']."','".$_POST['dir']."')";
     echo $query;
 if ($result = $connection->query($query)) {
     
 
 }
-
-header('Location:temporadas.php');
+header('Location:jugadores.php');
 ?>
 
 <?php endif ?>

@@ -14,7 +14,11 @@
           <ul class="navbar-nav ml-auto">
 
             <li class="nav-item">
-              <a class="nav-link" href="../paginaprincipal/paginaprincipaladmin.php">Gestionar</a>
+              <a class="nav-link" href="../admin/entrena.php">Entrena</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="../admin/pertenece.php">Pertenece</a>
             </li>
 
             <li class="nav-item">
@@ -38,7 +42,7 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="../admin/cerrarsesion.php">Cerrar sesion</a>
+              <a class="nav-link" href="../admin/cerrarsesion.php"><img src="../header/cerrarsesion.png" width='35px' height='35px'/></a>
             </li>
 
           </ul>

@@ -36,7 +36,7 @@
         }
 
     ?>
-      <?php if (!isset($_POST["ano"])) : ?>
+      <?php if (!isset($_POST["dni"])) : ?>
         
        <?php 
       
@@ -44,20 +44,58 @@
 //CREACION VARIABLE GET
 
     ?>
-    <form method="post">
+    
+      
+<form method="post">
   <div class="row justify-content-center">
     <div class="col-md-5">
   <div class="form-group">
-    <label>Años</label>
-    <input type="text" class="form-control" name="ano" placeholder="Ejemplo: 2015/2016" required>
+    <label>Nombre</label>
+    <input type="text" class="form-control" name="nom" required>
   </div>
   <div class="form-group">
-    <label>Fecha de inicio</label>
-    <input type="date" class="form-control" name="inicio" required>
+    <label>Apellidos</label>
+    <input type="text" class="form-control" name="ape" required>
   </div>
   <div class="form-group">
-    <label>Fecha de fin</label>
-    <input type="date" class="form-control" name="fin" required>
+    <label>DNI</label>
+    <input type="text" class="form-control" name="dni" maxlength="9" required>
+  </div>
+  <div class="form-group">
+    <label>Fecha nacimiento</label>
+    <input type="date" class="form-control" name="fec">
+  </div>
+  <div class="form-group">
+    <label>Telefono</label>
+    <input type="text" class="form-control" name="tfno" maxlength="9">
+  </div>
+  <div class="form-group">
+    <label>Direccion</label>
+    <input type="text" class="form-control" name="dir">
+  </div>
+  <label>Tipo</label>
+  <br>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="tipo" id="inlineRadio1" value="usuario">
+    <label class="form-check-label" for="inlineRadio1">Usuario</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="tipo" id="inlineRadio2" value="admin">
+    <label class="form-check-label" for="inlineRadio2">Administrador</label>
+  </div>
+  <br>
+  <br>
+  <div class="form-group">
+    <label>Email</label>
+    <input type="text" class="form-control" name="ema">
+  </div>
+  <div class="form-group">
+    <label>Contraseña</label>
+    <input type="text" class="form-control" name="pass">
+  </div>
+  <div>
+    <label>Foto personal</label>
+    <input type="file" name="image"/>
   </div>
   <br>
   <div class="row justify-content-center">
@@ -85,15 +123,13 @@
    
     //MAKING A SELECT QUERY
     /* Consultas de selección que devuelven un conjunto de resultados */
-    $query="INSERT INTO temporada (nombre,fechainicio,fechafin)
-            VALUES ('".$_POST['ano']."','".$_POST['inicio']."','".$_POST['fin']."')";
+    $query="INSERT INTO jugador (nombre, apellidos, dni, fechanacimiento, telefono, direccion, tipo, password, email)
+            VALUES ('".$_POST['nom']."','".$_POST['ape']."','".$_POST['dni']."','".$_POST['fec']."','".$_POST['tfno']."','".$_POST['dir']."','".$_POST['tipo']."','".$_POST['pass']."','".$_POST['ema']."')";
     echo $query;
 if ($result = $connection->query($query)) {
     
-
 }
-
-header('Location:temporadas.php');
+#header('Location:usuarios.php');
 ?>
 
 <?php endif ?>

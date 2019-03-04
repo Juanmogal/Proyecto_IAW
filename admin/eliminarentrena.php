@@ -24,55 +24,9 @@
     include_once "../header/headeradmin.php";
 ?>
 <!--Fin include cabecera-->
-        <?php
-  //CREATING THE CONNECTION
-        $connection = new mysqli("localhost", "juan", "2asirtriana", "cbmontellano");
-        $connection->set_charset("utf8");
-
-//TESTING IF THE CONNECTION WAS RIGHT
-    if ($connection->connect_errno) {
-        printf("Connection failed: %s\n", $connection->connect_error);
-    exit();
-        }
-
-    ?>
-      <?php if (!isset($_POST["ano"])) : ?>
-        
-       <?php 
-      
-
-//CREACION VARIABLE GET
-
-    ?>
-    <form method="post">
-  <div class="row justify-content-center">
-    <div class="col-md-5">
-  <div class="form-group">
-    <label>Años</label>
-    <input type="text" class="form-control" name="ano" placeholder="Ejemplo: 2015/2016" required>
-  </div>
-  <div class="form-group">
-    <label>Fecha de inicio</label>
-    <input type="date" class="form-control" name="inicio" required>
-  </div>
-  <div class="form-group">
-    <label>Fecha de fin</label>
-    <input type="date" class="form-control" name="fin" required>
-  </div>
-  <br>
-  <div class="row justify-content-center">
-  <button type="submit" class="btn btn-primary">Añadir</button>
-  </div>
-</div>
-</div>
-</form>
-
-
+       
      
-      <?php else: ?>
-         
-      <?php
-
+     <?php
 
     $connection = new mysqli("localhost", "juan", "2asirtriana", "cbmontellano");
     $connection->set_charset("utf8");
@@ -85,18 +39,19 @@
    
     //MAKING A SELECT QUERY
     /* Consultas de selección que devuelven un conjunto de resultados */
-    $query="INSERT INTO temporada (nombre,fechainicio,fechafin)
-            VALUES ('".$_POST['ano']."','".$_POST['inicio']."','".$_POST['fin']."')";
+    $query="DELETE FROM entrena WHERE idtemporada = '".$_GET['idtemporada']."' AND identrenador = '".$_GET['identrenador']."' AND idequipo = '".$_GET['idequipo']."'";
+
+
+
     echo $query;
 if ($result = $connection->query($query)) {
-    
+    echo 'Datos actualizados';
 
 }
-
-header('Location:temporadas.php');
+header('Location: entrena.php');
 ?>
 
-<?php endif ?>
+
 
 </div>
     

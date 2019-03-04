@@ -40,16 +40,23 @@
 
       //MAKING A SELECT QUERY
       /* Consultas de selección que devuelven un conjunto de resultados */
-        $query="SELECT * from jugador";
+        $query="select p.idequipo as idequipo,e.nombre as nombreequipo,
+        p.idjugador as idjugador, j.nombre as nombrejugador, j.apellidos as apellidosjugador,
+        p.idtemporada as idtemporada, t.nombre as anotemporada,
+        p.numerocamiseta as numerocamiseta
+        from temporada as t 
+        join pertenece as p on t.idtemporada = p.idtemporada
+        join equipo as e on p.idequipo = e.idequipo
+        join jugador as j on p.idjugador = j.idjugador;";
       if ($result = $connection->query($query)) {
       ?>
-      <div class="row" id="añadir">
+      <div class="row" id="añadirequipo">
         <div class="col-md-3">
-          <a href="anadirjugador.php">
-            <img src="añadir.svg" width="40" height="40">
+          <a href="anadirpertenece.php">
+            <img src="añadirequipo.svg" width="40" height="40">
           </a>
         </div>
-      </div>
+      </div> 
       <div class="row justify-content-center">
       <div class="col-md-10"> 
           <!-- PRINT THE TABLE AND THE HEADER -->
@@ -57,14 +64,15 @@
           <thead>
             <tr>
               <th scope="col">IdJugador</th>
-              <th scope="col">Nombre</th>
-              <th scope="col">Apellidos</th>
-              <th scope="col">DNI</th>
-              <th scope="col">Fecha nacimiento</th>
-              <th scope="col">Telefono</th>
-              <th scope="col">Direccion</th>
+              <th scope="col">Nombre jugador</th>
+              <th scope="col">Apellidos jugador</th>
+              <th scope="col">IdEquipo</th>
+              <th scope="col">Categoría</th>
+              <th scope="col">IdTemporada</th>
+              <th scope="col">Año</th>
+              <th scope="col">Dorsal camiseta</th>
               <th scope="col"></th>
-              <th scope="col"></th>
+              <th scope="col"></th> 
             </tr>
           </thead>
           <tbody>
@@ -77,19 +85,20 @@
               //PRINTING EACH ROW
               echo "<tr>";
                 echo "<td>".$obj->idjugador."</td>";
-                echo "<td>".$obj->nombre."</td>";
-                echo "<td>".$obj->apellidos."</td>";
-                echo "<td>".$obj->dni."</td>";
-                echo "<td>".$obj->fechanacimiento."</td>";
-                echo "<td>".$obj->telefono."</td>";
-                echo "<td>".$obj->direccion."</td>";
-                echo "<td><a href='editarjugador.php?id=$obj->idjugador'><img src='editar2.png' width='35px' height='35px'/></a></td>";
-                echo "<td><a href='eliminarjugador.php?id=$obj->idjugador'><img src='borrar2.png' width='35px' height='35px'/></a></td>";
+                echo "<td>".$obj->nombrejugador."</td>";
+                echo "<td>".$obj->apellidosjugador."</td>";
+                echo "<td>".$obj->idequipo."</td>";
+                echo "<td>".$obj->nombreequipo."</td>";
+                echo "<td>".$obj->idtemporada."</td>";
+                echo "<td>".$obj->anotemporada."</td>";
+                echo "<td>".$obj->numerocamiseta."</td>";
+                echo "<td><a href='editarpertenece.php?idequipo=$obj->idequipo&idjugador=$obj->idjugador&idtemporada=$obj->idtemporada&numero=$obj->numerocamiseta'><img src='editar2.png' width='35px' height='35px'/></a></td>";
+                echo "<td><a href='eliminarpertenece.php?idequipo=$obj->idequipo&idjugador=$obj->idjugador&idtemporada=$obj->idtemporada&numero=$obj->numerocamiseta'><img src='borrar2.png' width='35px' height='35px'/></a></td>";
               echo "</tr>";
             
           }
 
-          
+
           //Free the result. Avoid High Memory Usages
           $result->close();
           unset($obj);
@@ -103,8 +112,9 @@
     </div>
     </div>
     
-    
-
+<?php
+    include_once "../footer/footer.php";
+?>
     </div>
   </body>
 </html>

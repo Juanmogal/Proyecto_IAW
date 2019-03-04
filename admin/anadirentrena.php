@@ -36,53 +36,83 @@
         }
 
     ?>
-      <?php if (!isset($_POST["dni"])) : ?>
+      <?php if (!isset($_POST["entrenador"])) : ?>
         
        <?php 
-      
-
-//CREACION VARIABLE GET
-
     ?>
     
       
     <form method="post">
-  <div class="row justify-content-center">
-    <div class="col-md-5">
+<div class="row">
+  <!-- ENTRENADORES -->
+  <div class="col-md-4">
   <div class="form-group">
-    <label>Nombre</label>
-    <input type="text" class="form-control" name="nom" required>
-  </div>
-  <div class="form-group">
-    <label>Apellidos</label>
-    <input type="text" class="form-control" name="ape" required>
-  </div>
-  <div class="form-group">
-    <label>DNI</label>
-    <input type="text" class="form-control" name="dni" maxlength="9" required>
-  </div>
-  <div class="form-group">
-    <label>Fecha nacimiento</label>
-    <input type="date" class="form-control" name="fec">
-  </div>
-  <div class="form-group">
-    <label>Telefono</label>
-    <input type="text" class="form-control" name="tfno" maxlength="9">
-  </div>
-  <div class="form-group">
-    <label>Direccion</label>
-    <input type="text" class="form-control" name="dir">
-  </div>
-  <div>
-    <label>Foto personal</label>
-    <input type="file" name="image"/>
-  </div>
+      <label for="sel1">Entrenador:</label>
+        <select class="form-control" id="sel1" name="entrenador">
+        <option value="" disabled hidden selected>Añade un entrenador</option>
+          <?php
+            $query="SELECT * from entrenador";
+              if ($result = $connection->query($query)) {
+                while($obj = $result->fetch_object()) {
+                  
+                  echo  "<option value='".$obj->identrenador."' >".$obj->nombre." ".$obj->apellidos."</option>";
+                  }
+              }
+          ?>
+        </select>
+    </div>
+    </div>
+    <!-- FIN ENTRENADORES -->
+
+    <!-- EQUIPOS -->
+    <div class="col-md-4">
+    <div class="form-group">
+      <label for="sel1">Equipo:</label>
+        <select class="form-control" id="sel1" name="equipo" placeholder="Equipo">
+        <option value="" disabled hidden selected>Añade una categoría</option>
+          <?php
+            $query="SELECT * from equipo";
+              if ($result = $connection->query($query)) {
+                while($obj = $result->fetch_object()) {
+                  
+                  echo  "<option value='".$obj->idequipo."' >".$obj->nombre."</option>";
+                  }
+              }
+          ?>
+        </select>
+    </div>
+    </div>
+
+    <!-- FIN EQUIPOS -->
+
+    <!-- TEMPORADAS -->
+    <div class="col-md-4">
+    <div class="form-group">
+      <label for="sel1">Temporada:</label>
+        <select class="form-control" id="sel1" name="temporada">
+        <option value="" disabled hidden selected>Añade una temporada</option>
+          <?php
+            $query="SELECT * from temporada";
+              if ($result = $connection->query($query)) {
+                while($obj = $result->fetch_object()) {
+                  
+                  echo  "<option value='".$obj->idtemporada."' >".$obj->nombre."</option>";
+                  }
+              }
+          ?>
+        </select>
+    </div>
+    </div> 
+    <!-- FIN TEMPORADAS -->
+
   <br>
-  <div class="row justify-content-center">
-  <button type="submit" class="btn btn-primary">Añadir</button>
   </div>
-</div>
-</div>
+    <div class="row justify-content-center">
+      <button type="submit" class="btn btn-primary">Añadir</button>
+    </div>
+    
+  </div>
+  </div>
 </form>
 
 
@@ -103,14 +133,14 @@
    
     //MAKING A SELECT QUERY
     /* Consultas de selección que devuelven un conjunto de resultados */
-    $query="INSERT INTO jugador (nombre, apellidos, dni, fechanacimiento, telefono, direccion)
-            VALUES ('".$_POST['nom']."','".$_POST['ape']."','".$_POST['dni']."','".$_POST['fec']."','".$_POST['tfno']."','".$_POST['dir']."')";
+    $query="INSERT INTO entrena (idtemporada, identrenador, idequipo)
+            VALUES ('".$_POST['temporada']."','".$_POST['entrenador']."','".$_POST['equipo']."')";
     echo $query;
 if ($result = $connection->query($query)) {
     
 
 }
-header('Location:jugadores.php');
+header('Location:entrena.php');
 ?>
 
 <?php endif ?>

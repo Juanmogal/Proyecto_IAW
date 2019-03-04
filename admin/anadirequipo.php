@@ -27,7 +27,7 @@
         <?php
   //CREATING THE CONNECTION
         $connection = new mysqli("localhost", "juan", "2asirtriana", "cbmontellano");
-        $connection->set_charset("uft8");
+        $connection->set_charset("utf8");
 
 //TESTING IF THE CONNECTION WAS RIGHT
     if ($connection->connect_errno) {
@@ -73,7 +73,7 @@
 
 
     $connection = new mysqli("localhost", "juan", "2asirtriana", "cbmontellano");
-    $connection->set_charset("uft8");
+    $connection->set_charset("utf8");
 
     //TESTING IF THE CONNECTION WAS RIGHT
     if ($connection->connect_errno) {

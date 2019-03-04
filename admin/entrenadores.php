@@ -29,7 +29,7 @@
 
       //CREATING THE CONNECTION
       $connection = new mysqli("localhost", "juan", "2asirtriana", "cbmontellano");
-      $connection->set_charset("uft8");
+      $connection->set_charset("utf8");
 
       //TESTING IF THE CONNECTION WAS RIGHT
       if ($connection->connect_errno) {
@@ -50,9 +50,9 @@
         </div>
       </div>
       <div class="row justify-content-center">
-      <div class="col-md-9">
+      <div class="col-md-10">
           <!-- PRINT THE TABLE AND THE HEADER -->
-          <table class="table table-hover" id="tabla">
+          <table class="table table-hover table-bordered" id="tabla">
           <thead>
             <tr>
               <th scope="col">IdEntrenador</th>

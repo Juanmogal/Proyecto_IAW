@@ -131,7 +131,7 @@ li {
 .mx-background-top-linear {
     background: -webkit-linear-gradient(45deg, #FFC312 48%, #1b1e21 48%);
     background: -webkit-linear-gradient(left, #FFC312 48%, #1b1e21 48%);
-    background: linear-gradient(45deg, #FFC312 48%, #1b1e21 48%);
+    background: linear-gradient(45deg, #FFC312 10%, #1b1e21 40%);
 }
 #textocabecera{
     font-size: 25px;

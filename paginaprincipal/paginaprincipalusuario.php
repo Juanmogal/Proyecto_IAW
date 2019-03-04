@@ -90,7 +90,7 @@
                                     <div class="position-relative">
                                         <!--thumbnail img-->
                                         <div class="ratio_left-cover-1 image-wrapper">
-                                            <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                                            <a href="">
                                                 <img class="img-fluid w-100"
                                                      src="noticia1.png"
                                                      alt="Image description">
@@ -100,7 +100,7 @@
                                         <!--title-->
                                         <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
                                             <!--title and description-->
-                                            <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                                            <a href="">
                                                 <h2 class="h3 post-title text-white my-1">Se cierra el fichaje del gran tirador Carlos de Cires</h2>
                                             </a>
 
@@ -123,7 +123,7 @@
                                     <div class="position-relative">
                                         <!--thumbnail img-->
                                         <div class="ratio_left-cover-1 image-wrapper">
-                                            <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                                            <a href="">
                                                 <img class="img-fluid w-100"
                                                      src="noticia3.png"
                                                      alt="Image description">
@@ -133,7 +133,7 @@
                                         <!--title-->
                                         <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
                                             <!--title and description-->
-                                            <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                                            <a href="">
                                                 <h2 class="h3 post-title text-white my-1">El equipo cadete femenino logra el pase a la Final Four que dará acceso al campeonato de Andalucía</h2>
                                             </a>
 
@@ -156,7 +156,7 @@
                                     <div class="position-relative">
                                         <!--thumbnail img-->
                                         <div class="ratio_left-cover-1 image-wrapper">
-                                            <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                                            <a href="">
                                                 <img class="img-fluid w-100"
                                                      src="noticia2.png"
                                                      alt="Image description">
@@ -166,7 +166,7 @@
                                         <!--title-->
                                         <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
                                             <!--title and description-->
-                                            <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                                            <a href="">
                                                 <h2 class="h3 post-title text-white my-1">Nuestro canterano, Iván Triguero, MVP del campeonato de Andalucía, disputado en Los Palacios</h2>
                                             </a>
 
@@ -189,7 +189,7 @@
                                     <div class="position-relative">
                                         <!--thumbnail img-->
                                         <div class="ratio_left-cover-1 image-wrapper">
-                                            <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                                            <a href="">
                                                 <img class="img-fluid w-100"
                                                      src="noticia4.png"
                                                      alt="Image description">
@@ -199,7 +199,7 @@
                                         <!--title-->
                                         <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
                                             <!--title and description-->
-                                            <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                                            <a href="">
                                                 <h2 class="h3 post-title text-white my-1">Tenemos nuevo director deportivo, Manuel García Lebrato</h2>
                                             </a>
 
@@ -240,7 +240,7 @@
                                 <div class="position-relative">
                                     <!--thumbnail img-->
                                     <div class="ratio_right-cover-2 image-wrapper">
-                                        <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                                        <a href="">
                                             <img class="img-fluid"
                                                  src="escuelasdeportivas.png"
                                                  alt="Image description">
@@ -265,7 +265,7 @@
                                 <div class="position-relative">
                                     <!--thumbnail img-->
                                     <div class="ratio_right-cover-2 image-wrapper">
-                                        <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                                        <a href="">
                                             <img class="img-fluid"
                                                  src="baloncestomasculino.png"
                                                  alt="Image description" id="baloncestomasculino">
@@ -290,7 +290,7 @@
                                 <div class="position-relative">
                                     <!--thumbnail img-->
                                     <div class="ratio_right-cover-2 image-wrapper">
-                                        <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                                        <a href="">
                                             <img class="img-fluid"
                                                  src="baloncestofemenino.jpg"
                                                  id="baloncestofemenino">
@@ -315,7 +315,7 @@
                                 <div class="position-relative">
                                     <!--thumbnail img-->
                                     <div class="ratio_right-cover-2 image-wrapper">
-                                        <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                                        <a href="">
                                             <img class="img-fluid"
                                                  src="logo.jpeg"
                                                  id="imagenlogo">
