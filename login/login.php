@@ -52,7 +52,7 @@
                  while($obj = $result->fetch_object()) {
                 //VALID LOGIN. SETTING SESSION VARS
                 $_SESSION["email"]=$_POST["email"];
-                $_SESSION["password"]=$_POST["password"];
+                //$_SESSION["password"]=$_POST["password"];
                 $_SESSION["tipo"]=$obj->tipo;
                 }
                 header("Location: ../index.php");

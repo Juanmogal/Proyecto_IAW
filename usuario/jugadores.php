@@ -1,3 +1,6 @@
+<?php
+      include_once "../session/sessionusuario.php";
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -21,85 +24,11 @@
     include_once "../header/header.php";
 ?>
 <!--Fin include cabecera-->
-
-
-    <?php
-
-      //CREATING THE CONNECTION
-      $connection = new mysqli("localhost", "juan", "2asirtriana", "cbmontellano");
-      $connection->set_charset("utf8");
-
-      //TESTING IF THE CONNECTION WAS RIGHT
-      if ($connection->connect_errno) {
-          printf("Connection failed: %s\n", $connection->connect_error);
-          exit();
-      }
-
-      //MAKING A SELECT QUERY
-      /* Consultas de selección que devuelven un conjunto de resultados */
-        $query="SELECT * from jugador";
-      if ($result = $connection->query($query)) {
-      ?>
-      <div class="row" id="añadir">
-        <div class="col-md-3">
-          <a href="anadirjugador.php">
-            <img src="añadir.svg" width="40" height="40">
-          </a>
-        </div>
-      </div>
-      <div class="row justify-content-center">
-      <div class="col-md-10"> 
-          <!-- PRINT THE TABLE AND THE HEADER -->
-          <table class="table table-hover table-bordered" id="tabla">
-          <thead>
-            <tr>
-              <th scope="col">IdJugador</th>
-              <th scope="col">Nombre</th>
-              <th scope="col">Apellidos</th>
-              <th scope="col">DNI</th>
-              <th scope="col">Fecha nacimiento</th>
-              <th scope="col">Telefono</th>
-              <th scope="col">Direccion</th>
-              <th scope="col"></th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody>
-      <?php
-
-          //FETCHING OBJECTS FROM THE RESULT SET
-          //THE LOOP CONTINUES WHILE WE HAVE ANY OBJECT (Query Row) LEFT
-          
-          while($obj = $result->fetch_object()) {
-              //PRINTING EACH ROW
-              echo "<tr>";
-                echo "<td>".$obj->idjugador."</td>";
-                echo "<td>".$obj->nombre."</td>";
-                echo "<td>".$obj->apellidos."</td>";
-                echo "<td>".$obj->dni."</td>";
-                echo "<td>".$obj->fechanacimiento."</td>";
-                echo "<td>".$obj->telefono."</td>";
-                echo "<td>".$obj->direccion."</td>";
-                echo "<td><a href='editarjugador.php?id=$obj->idjugador'><img src='editar2.png' width='35px' height='35px'/></a></td>";
-                echo "<td><a href='eliminarjugador.php?id=$obj->idjugador'><img src='borrar2.png' width='35px' height='35px'/></a></td>";
-              echo "</tr>";
-            
-          }
-
-          
-          //Free the result. Avoid High Memory Usages
-          $result->close();
-          unset($obj);
-          unset($connection);
-
-      } //END OF THE IF CHECKING IF THE QUERY WAS RIGHT
-
-    ?>
-    </tbody>
-    </table>
-    </div>
-    </div>
-    
+    <form class="form-inline my-2 my-lg-0" method=post action="buscarjugadores.php">
+      <input class="form-control mr-sm-2" type="search" placeholder="Jugadores" aria-label="Search" name="busqueda">
+      
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+    </form>
     
 
     </div>

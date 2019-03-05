@@ -1,6 +1,6 @@
 <?php session_start();
 
-    if (!isset($_SESSION['tipo']) || $_SESSION['tipo']!='admin')
+    if (!isset($_SESSION['tipo']))
     {
         session_destroy();
         header("Location: ../login/login.php");
