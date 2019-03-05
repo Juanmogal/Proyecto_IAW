@@ -90,11 +90,25 @@
       <?php else: ?>
          
       <?php
-// INSERTAR IMAGEN
+
+  //CREAMOS LA CONEXION
+
+
+    $connection = new mysqli("localhost", "juan", "2asirtriana", "cbmontellano");
+    $connection->set_charset("uft8");
+
+    //TESTING IF THE CONNECTION WAS RIGHT
+    if ($connection->connect_errno) {
+        printf("Connection failed: %s\n", $connection->connect_error);
+        exit();
+    }
+    if (isset($_FILES['image']) && $_FILES['image']['name']!=''){
+      var_dump($_FILES);
+      // INSERTAR IMAGEN
         //Temp file. Where the uploaded file is stored temporary
         $tmp_file = $_FILES['image']['tmp_name'];
         //Dir where we are going to store the file
-        $target_dir = "img/jugadores/";
+        $target_dir = "../img/jugadores/";
         //Full name of the file.
         $target_file = strtolower($target_dir . basename($_FILES['image']['name']));
         //Can we upload the file
@@ -121,32 +135,30 @@
           move_uploaded_file($tmp_file, $target_file);
           echo "PRODUCT ADDED";
 
-  //CREAMOS LA CONEXION
-
-
-    $connection = new mysqli("localhost", "juan", "2asirtriana", "cbmontellano");
-    $connection->set_charset("uft8");
-
-    //TESTING IF THE CONNECTION WAS RIGHT
-    if ($connection->connect_errno) {
-        printf("Connection failed: %s\n", $connection->connect_error);
-        exit();
-    }
-   
-    //MAKING A SELECT QUERY
-    /* Consultas de selección que devuelven un conjunto de resultados */
-    $query="INSERT INTO jugador (nombre, apellidos, dni, fechanacimiento, telefono, direccion,foto)
+            //MAKING A SELECT QUERY
+            /* Consultas de selección que devuelven un conjunto de resultados */
+            $query="INSERT INTO jugador (nombre, apellidos, dni, fechanacimiento, telefono, direccion,foto)
             VALUES ('".$_POST['nom']."','".$_POST['ape']."','".$_POST['dni']."','".$_POST['fec']."','".$_POST['tfno']."','".$_POST['dir']."','$target_file')";
-    echo $query;
+ 
+         }
+      }    
+    else{
+      $query="INSERT INTO jugador (nombre, apellidos, dni, fechanacimiento, telefono, direccion)
+            VALUES ('".$_POST['nom']."','".$_POST['ape']."','".$_POST['dni']."','".$_POST['fec']."','".$_POST['tfno']."','".$_POST['dir']."')";
+    }
+echo $query;
+    
 if ($result = $connection->query($query)) {
     
 
 }
-        }
+         
+      
 header('Location:jugadores.php');
+
 ?>
 
-<?php endif; ?>
+<?php endif ?>
 
 </div>
     

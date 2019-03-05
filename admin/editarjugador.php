@@ -125,7 +125,7 @@
         //Temp file. Where the uploaded file is stored temporary
         $tmp_file = $_FILES['image']['tmp_name'];
         //Dir where we are going to store the file
-        $target_dir = "img/jugadores/";
+        $target_dir = "../img/jugadores/";
         //Full name of the file.
         $target_file = strtolower($target_dir . basename($_FILES['image']['name']));
         //Can we upload the file

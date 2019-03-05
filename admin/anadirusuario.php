@@ -119,9 +119,9 @@
    
     //MAKING A SELECT QUERY
     /* Consultas de selección que devuelven un conjunto de resultados */
-    $query="INSERT INTO jugador (nombre, apellidos, dni, fechanacimiento, telefono, direccion, tipo, password, email)
-            VALUES ('".$_POST['nom']."','".$_POST['ape']."','".$_POST['dni']."','".$_POST['fec']."','".$_POST['tfno']."','".$_POST['dir']."','".$_POST['tipo']."','".$_POST['pass']."','".$_POST['ema']."')";
-    echo $query;
+    $query="INSERT INTO usuario (nombre, apellidos, dni, fechanacimiento, telefono, direccion, tipo, password, email)
+            VALUES ('".$_POST['nom']."','".$_POST['ape']."','".$_POST['dni']."','".$_POST['fec']."','".$_POST['tfno']."','".$_POST['dir']."','".$_POST['tipo']."',md5('".$_POST['pass']."'),'".$_POST['ema']."')";
+        echo $query;                                                                                                                                                                   
 if ($result = $connection->query($query)) {
     
 }

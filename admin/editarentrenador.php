@@ -57,7 +57,7 @@
     ?>
     
       
-    <form method="post">
+    <form action="editarentrenador.php" method="post" enctype="multipart/form-data">
   <div class="row justify-content-center">
     <div class="col-md-5">
   <div class="form-group">
@@ -87,6 +87,12 @@
   <div class="form-group">
     <label id="camposregistro">Direccion</label>
     <input type="text" class="form-control" name="dir" value="<?php echo "$obj->direccion" ?>">
+    <input type="hidden" value="<?php echo $_GET['id'];?>" name="identrenador"/>
+  </div>
+  <div class="form-group">
+    <label id="camposregistro">Foto actual</label>
+    <br>
+    <img src='<?php echo $obj->foto; ?>' width='90px' height='90px'id='fotojugador2'/>
   </div>
   <div>
     <label id="camposregistro">Foto personal</label>
@@ -116,16 +122,60 @@
         exit();
     }
    
-    //MAKING A SELECT QUERY
-    /* Consultas de selección que devuelven un conjunto de resultados */
-    $query="UPDATE entrenador SET nombre='".$_POST['nom']."',apellidos='".$_POST['ape']."',
-    dni='".$_POST['dni']."',fechanacimiento='".$_POST['fec']."',numerolicencia='".$_POST['num']."',telefono='".$_POST['tfno']."',direccion='".$_POST['dir']."' WHERE identrenador ='".$_GET['id']."'";
+    if (isset($_FILES['image']) && $_FILES['image']['name']!=''){
+      var_dump($_FILES);
+      // INSERTAR IMAGEN
+        //Temp file. Where the uploaded file is stored temporary
+        $tmp_file = $_FILES['image']['tmp_name'];
+        //Dir where we are going to store the file
+        $target_dir = "../img/entrenadores/";
+        //Full name of the file.
+        $target_file = strtolower($target_dir . basename($_FILES['image']['name']));
+        //Can we upload the file
+        $valid= true;
+        //Check if the file already exists
+        if (file_exists($target_file)) {
+          echo "Sorry, file already exists.";
+          $valid = false;
+        }
+        //Check the size of the file. Up to 2Mb
+        if ($_FILES['image']['size'] > (2048000)) {
+          $valid = false;
+          echo 'Oops!  Your file\'s size is to large.';
+        }
+        //Check the file extension: We need an image not any other different type of file
+        $file_extension = pathinfo($target_file, PATHINFO_EXTENSION); // We get the entension
+        if ($file_extension!="jpg" && $file_extension!="jpeg" && $file_extension!="png" && $file_extension!="gif") {
+          $valid = false;
+          echo "Only JPG, JPEG, PNG & GIF files are allowed";
+        }
+        if ($valid) {
+          var_dump($target_file);
+          //Put the file in its place
+          move_uploaded_file($tmp_file, $target_file);
+          echo "PRODUCT ADDED";
+
+            //MAKING A SELECT QUERY
+            /* Consultas de selección que devuelven un conjunto de resultados */
+            $query="UPDATE entrenador SET nombre='".$_POST['nom']."',apellidos='".$_POST['ape']."',
+            dni='".$_POST['dni']."',fechanacimiento='".$_POST['fec']."',numerolicencia='".$_POST['num']."',telefono='".$_POST['tfno']."',direccion='".$_POST['dir']."', foto='$target_file' WHERE identrenador = '".$_POST['identrenador']."'";
+         }
+         echo $query;
+      }    
+    else{
+      $query="UPDATE entrenador SET nombre='".$_POST['nom']."',apellidos='".$_POST['ape']."',
+    dni='".$_POST['dni']."',fechanacimiento='".$_POST['fec']."',numerolicencia='".$_POST['num']."',telefono='".$_POST['tfno']."',direccion='".$_POST['dir']."' WHERE idjugador = '".$_POST['identrenador']."'";
+    }
+echo $query;
     
 if ($result = $connection->query($query)) {
     
 
 }
+         
+      
 header('Location:entrenadores.php');
+
 ?>
 
 <?php endif ?>

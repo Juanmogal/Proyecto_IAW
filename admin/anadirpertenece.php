@@ -144,7 +144,7 @@
     //MAKING A SELECT QUERY
     /* Consultas de selección que devuelven un conjunto de resultados */
     $query="INSERT INTO pertenece (idjugador, idtemporada, idequipo, numerocamiseta)
-            VALUES ('".$_POST['jugador']."','".$_POST['equipo']."','".$_POST['temporada']."','".$_POST['numero']."')";
+            VALUES ('".$_POST['jugador']."','".$_POST['temporada']."','".$_POST['equipo']."','".$_POST['numero']."')";
     echo $query;
 if ($result = $connection->query($query)) {
     

@@ -46,7 +46,7 @@
     ?>
     
       
-    <form method="post">
+    <form action="anadirequipo.php" method="post" enctype="multipart/form-data">
   <div class="row justify-content-center">
     <div class="col-md-5">
   <div class="form-group">
@@ -70,7 +70,38 @@
       <?php else: ?>
          
       <?php
+// INSERTAR IMAGEN
+        //Temp file. Where the uploaded file is stored temporary
+        $tmp_file = $_FILES['image']['tmp_name'];
+        //Dir where we are going to store the file
+        $target_dir = "../img/equipos/";
+        //Full name of the file.
+        $target_file = strtolower($target_dir . basename($_FILES['image']['name']));
+        //Can we upload the file
+        $valid= true;
+        //Check if the file already exists
+        if (file_exists($target_file)) {
+          echo "Sorry, file already exists.";
+          $valid = false;
+        }
+        //Check the size of the file. Up to 2Mb
+        if ($_FILES['image']['size'] > (2048000)) {
+          $valid = false;
+          echo 'Oops!  Your file\'s size is to large.';
+        }
+        //Check the file extension: We need an image not any other different type of file
+        $file_extension = pathinfo($target_file, PATHINFO_EXTENSION); // We get the entension
+        if ($file_extension!="jpg" && $file_extension!="jpeg" && $file_extension!="png" && $file_extension!="gif") {
+          $valid = false;
+          echo "Only JPG, JPEG, PNG & GIF files are allowed";
+        }
+        if ($valid) {
+          var_dump($target_file);
+          //Put the file in its place
+          move_uploaded_file($tmp_file, $target_file);
+          echo "PRODUCT ADDED";
 
+  //CREAMOS LA CONEXION
 
     $connection = new mysqli("localhost", "juan", "2asirtriana", "cbmontellano");
     $connection->set_charset("utf8");
@@ -83,13 +114,14 @@
    
     //MAKING A SELECT QUERY
     /* Consultas de selección que devuelven un conjunto de resultados */
-    $query="INSERT INTO equipo (nombre)
-            VALUES ('".$_POST['nom']."')";
+    $query="INSERT INTO equipo (nombre,foto)
+            VALUES ('".$_POST['nom']."', '$target_file')";
     echo $query;
 if ($result = $connection->query($query)) {
     
 
 }
+        }
 header('Location:equipos.php');
 ?>
 

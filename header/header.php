@@ -22,11 +22,11 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="" id="itemsbarra">Entrenadores</a>
+              <a class="nav-link" href="../usuario/entrenadores.php" id="itemsbarra">Entrenadores</a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="" id="itemsbarra">Equipos</a>
+              <a class="nav-link" href="../usuario/equipos.php" id="itemsbarra">Equipos</a>
             </li>
 
             <li class="nav-item">

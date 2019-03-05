@@ -18,3 +18,12 @@
 #itemsbarra {
 	color: white;
 }
+#textocards{
+    text-align: center;
+}
+#hoverfotos:hover{
+    -webkit-transform: scale(1.75);
+    transform: scale(1.75);
+    position:absolute;
+    
+}
