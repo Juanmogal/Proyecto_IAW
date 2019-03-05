@@ -55,7 +55,7 @@
     }
 
     ?>
-<form method="post">
+ <form action="editarjugador.php" method="post" enctype="multipart/form-data">
   <div class="row justify-content-center">
     <div class="col-md-5">
   <div class="form-group">
@@ -81,6 +81,12 @@
   <div class="form-group">
     <label id="camposregistro">Direccion</label>
     <input type="text" class="form-control" name="dir" value="<?php echo "$obj->direccion" ?>">
+    <input type="hidden" value="<?php echo $_GET['id'];?>" name="idjugador"/>
+  </div>
+  <div class="form-group">
+    <label id="camposregistro">Foto actual</label>
+    <br>
+    <img src='<?php echo $obj->foto; ?>' width='90px' height='90px'id='fotojugador2'/>
   </div>
   <div>
     <label id="camposregistro">Foto personal</label>
@@ -100,7 +106,21 @@
       <?php else: ?>
          
       <?php
+  //CREAMOS LA CONEXION
 
+
+    $connection = new mysqli("localhost", "juan", "2asirtriana", "cbmontellano");
+    $connection->set_charset("utf8");
+
+    //TESTING IF THE CONNECTION WAS RIGHT
+    if ($connection->connect_errno) {
+        printf("Connection failed: %s\n", $connection->connect_error);
+        exit();
+    }
+   
+    
+    if (isset($_FILES['image']) && $_FILES['image']['name']!=''){
+      var_dump($_FILES);
       // INSERTAR IMAGEN
         //Temp file. Where the uploaded file is stored temporary
         $tmp_file = $_FILES['image']['tmp_name'];
@@ -132,30 +152,26 @@
           move_uploaded_file($tmp_file, $target_file);
           echo "PRODUCT ADDED";
 
-  //CREAMOS LA CONEXION
-
-
-    $connection = new mysqli("localhost", "juan", "2asirtriana", "cbmontellano");
-    $connection->set_charset("utf8");
-
-    //TESTING IF THE CONNECTION WAS RIGHT
-    if ($connection->connect_errno) {
-        printf("Connection failed: %s\n", $connection->connect_error);
-        exit();
+            //MAKING A SELECT QUERY
+            /* Consultas de selección que devuelven un conjunto de resultados */
+            $query="UPDATE jugador SET nombre='".$_POST['nom']."',apellidos='".$_POST['ape']."',
+            dni='".$_POST['dni']."',fechanacimiento='".$_POST['fec']."',telefono='".$_POST['tfno']."',direccion='".$_POST['dir']."', foto='$target_file' WHERE idjugador = '".$_POST['idjugador']."'";
+         }
+      }    
+    else{
+      $query="UPDATE jugador SET nombre='".$_POST['nom']."',apellidos='".$_POST['ape']."',
+    dni='".$_POST['dni']."',fechanacimiento='".$_POST['fec']."',telefono='".$_POST['tfno']."',direccion='".$_POST['dir']."' WHERE idjugador = '".$_POST['idjugador']."'";
     }
-   
-
-
-    //MAKING A SELECT QUERY
-    /* Consultas de selección que devuelven un conjunto de resultados */
-    $query="UPDATE jugador SET nombre='".$_POST['nom']."',apellidos='".$_POST['ape']."',
-    dni='".$_POST['dni']."',fechanacimiento='".$_POST['fec']."',telefono='".$_POST['tfno']."',direccion='".$_POST['dir']."' WHERE idjugador = '".$_GET['id']."'";
+echo $query;
     
 if ($result = $connection->query($query)) {
     
 
 }
+         
+      
 header('Location:jugadores.php');
+
 ?>
 
 <?php endif ?>

@@ -26,3 +26,7 @@
     -webkit-transform: scale(5);
     transform: scale(5);
 }
+#fotojugador2:hover{
+    -webkit-transform: scale(3);
+    transform: scale(3);
+}
