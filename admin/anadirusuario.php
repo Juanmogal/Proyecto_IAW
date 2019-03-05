@@ -93,10 +93,6 @@
     <label>Contraseña</label>
     <input type="text" class="form-control" name="pass">
   </div>
-  <div>
-    <label>Foto personal</label>
-    <input type="file" name="image"/>
-  </div>
   <br>
   <div class="row justify-content-center">
   <button type="submit" class="btn btn-primary">Añadir</button>

@@ -14,6 +14,7 @@
   <!--Enlace con CSS-->
   <link rel="stylesheet" type="text/css" href="../header/header.css">
   <link rel="stylesheet" type="text/css" href="style.css">
+  
   <!--Libreria font-awesome-->
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>

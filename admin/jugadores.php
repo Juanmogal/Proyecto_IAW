@@ -63,6 +63,7 @@
               <th scope="col">Fecha nacimiento</th>
               <th scope="col">Telefono</th>
               <th scope="col">Direccion</th>
+              <th scope="col">Foto</th>
               <th scope="col"></th>
               <th scope="col"></th>
             </tr>
@@ -83,10 +84,11 @@
                 echo "<td>".$obj->fechanacimiento."</td>";
                 echo "<td>".$obj->telefono."</td>";
                 echo "<td>".$obj->direccion."</td>";
+                echo "<td><img src='".$obj->foto."' width='60px' height='60px'id='fotojugador'/></td>";
                 echo "<td><a href='editarjugador.php?id=$obj->idjugador'><img src='editar2.png' width='35px' height='35px'/></a></td>";
                 echo "<td><a href='eliminarjugador.php?id=$obj->idjugador'><img src='borrar2.png' width='35px' height='35px'/></a></td>";
               echo "</tr>";
-            
+              
           }
 
           

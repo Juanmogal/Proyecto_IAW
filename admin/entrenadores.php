@@ -63,6 +63,7 @@
               <th scope="col">Número licencia</th>
               <th scope="col">Telefono</th>
               <th scope="col">Direccion</th>
+              <th scope="col">Foto</th>
               <th scope="col"></th>
               <th scope="col"></th>
             </tr>
@@ -83,6 +84,7 @@
                 echo "<td>".$obj->numerolicencia."</td>";
                 echo "<td>".$obj->telefono."</td>";
                 echo "<td>".$obj->direccion."</td>";
+                echo "<td><img src='".$obj->foto."' width='60px' height='60px'id='fotojugador'/></td>";
                 echo "<td><a href='editarentrenador.php?id=$obj->identrenador'><img src='editar2.png' width='35px' height='35px'/></a></td>";
                 echo "<td><a href='eliminarentrenador.php?id=$obj->identrenador'><img src='borrar2.png' width='35px' height='35px'/></a></td>";
               echo "</tr>";

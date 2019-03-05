@@ -14,19 +14,19 @@
           <ul class="navbar-nav ml-auto">
 
             <li class="nav-item">
-              <a class="nav-link" href="../paginaprincipal/paginaprincipalusuario.php">Home</a>
+              <a class="nav-link" href="../paginaprincipal/paginaprincipalusuario.php" id="itemsbarra">Home</a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="../usuario/jugadores.php">Jugadores</a>
+              <a class="nav-link" href="../usuario/jugadores.php" id="itemsbarra">Jugadores</a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="">Entrenadores</a>
+              <a class="nav-link" href="" id="itemsbarra">Entrenadores</a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="">Equipos</a>
+              <a class="nav-link" href="" id="itemsbarra">Equipos</a>
             </li>
 
             <li class="nav-item">

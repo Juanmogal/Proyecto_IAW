@@ -1,5 +1,5 @@
 <?php
-      include_once "../session/sessionadmin.php";
+      include_once "../session/sessionusuario.php";
 ?>
 <!DOCTYPE html>
 <html lang="es">

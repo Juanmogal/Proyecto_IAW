@@ -22,3 +22,7 @@
 #botonbuscar{
     color: red;
 }	
+#fotojugador:hover{
+    -webkit-transform: scale(5);
+    transform: scale(5);
+}
