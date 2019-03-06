@@ -72,7 +72,7 @@ CREATE TABLE `entrenador` (
 
 LOCK TABLES `entrenador` WRITE;
 /*!40000 ALTER TABLE `entrenador` DISABLE KEYS */;
-INSERT INTO `entrenador` VALUES (1,'Juan Diego','Perez Jimenez','12345678A','1989-01-25',2147483647,'654321987','Betis,34','../img/entrenadores/jd.jpeg'),(8,'Sergio ','Scariolo','12345678A','1963-04-06',12345,'669885740','Calle triana','../img/entrenadores/entrenador1.jpg'),(9,'Pablo','Laso','12345678B','1958-11-01',23456,'669330254','Madrid','../img/entrenadores/entrenador2.jpg'),(10,'Alfonso Alonso','Blanco','12345678C','1971-01-21',34567,'632587410','Barcelona','../img/entrenadores/entrenador3.jpg');
+INSERT INTO `entrenador` VALUES (1,'Juan Diego','Perez Jimenez','12345678A','1989-01-25',2147483647,'654321987','Betis,34','../img/entrenadores/entrenador5.png'),(8,'Sergio Alex ','Arenols Solano','12345678A','1963-04-06',12345,'669885740','Calle triana','../img/entrenadores/entrenador4.png'),(9,'Miguel','Campos','12345678B','1958-11-01',23456,'669330254','Madrid','../img/entrenadores/entrenador6.png'),(10,'Luis Miguel ','López Magaña','12345678C','1971-01-21',34567,'632587410','Barcelona','../img/entrenadores/entrenador7.png');
 /*!40000 ALTER TABLE `entrenador` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -118,7 +118,7 @@ CREATE TABLE `jugador` (
   `direccion` varchar(100) DEFAULT NULL,
   `foto` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`idjugador`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -127,7 +127,7 @@ CREATE TABLE `jugador` (
 
 LOCK TABLES `jugador` WRITE;
 /*!40000 ALTER TABLE `jugador` DISABLE KEYS */;
-INSERT INTO `jugador` VALUES (12,'Juan','Moreno Galbarro','89765412A','1997-05-05','613558741','Calle Tambre, 3','../img/jugadores/jugador1.png'),(13,'Ismael','Gomez Luque','23987651C','1998-08-02','600000000','los palacios y villafranca','../img/jugadores/jugador2.png'),(16,'Manuel ','Garcia Lebrato','58967412H','1995-05-26','633200589','Mairena','../img/jugadores/jugador3.png'),(17,'Ivan','Triguero Curado','55896203D','1999-02-09','675986231','los palacios y villafranca','../img/jugadores/jugador4.png'),(18,'Carlos ','De Cires','12349876F','1992-09-08','669332001','Hontoria del Pinar','../img/jugadores/jugador5.png');
+INSERT INTO `jugador` VALUES (12,'Juan','Moreno Galbarro','89765412A','1997-05-05','613558741','Calle Tambre, 3','../img/jugadores/jugador1.png'),(16,'Manuel ','Garcia Lebrato','58967412H','1995-05-26','633200589','Mairena','../img/jugadores/jugador3.png'),(17,'Ivan','Triguero Curado','55896203D','1999-02-09','675986231','los palacios y villafranca','../img/jugadores/jugador4.png'),(18,'Carlos ','De Cires','12349876F','1992-09-08','669332001','Hontoria del Pinar','../img/jugadores/jugador5.png'),(22,'Ismael','Gomez Luque','12345678','2019-03-15','666666666','calle triana','../img/jugadores/jugador2.png');
 /*!40000 ALTER TABLE `jugador` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -158,7 +158,7 @@ CREATE TABLE `pertenece` (
 
 LOCK TABLES `pertenece` WRITE;
 /*!40000 ALTER TABLE `pertenece` DISABLE KEYS */;
-INSERT INTO `pertenece` VALUES (12,3,13,10),(13,2,14,5),(16,1,17,8),(17,3,18,13),(18,3,18,9);
+INSERT INTO `pertenece` VALUES (12,3,13,10),(16,1,17,8),(17,3,18,13),(18,3,18,9),(22,1,14,23);
 /*!40000 ALTER TABLE `pertenece` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -229,4 +229,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-03-06 12:38:09
+-- Dump completed on 2019-03-06 19:04:46
