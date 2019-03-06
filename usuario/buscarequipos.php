@@ -1,5 +1,5 @@
 <?php
-      include_once "../session/sessionadmin.php";
+      include_once "../session/sessionusuario.php";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -21,11 +21,17 @@
 <div class="container"> <!-- Inicio container -->
 <!--Include cabecera-->
 <?php
-    include_once "../header/headeradmin.php";
+    include_once "../header/header.php";
 ?>
-<!--Fin include cabecera-->
-    <?php
 
+<!--Fin include cabecera-->
+<div class="row justify-content-start" id="flechaatras">
+    <div clas="col-md-6">
+      <a href="equipos.php"><img src="back.png" width="40px" height="40px" id="fotoflecha"/> Volver atrás</a>
+    </div>
+</div>
+    <?php
+      
       //CREATING THE CONNECTION
       $connection = new mysqli("localhost", "juan", "2asirtriana", "cbmontellano");
       $connection->set_charset("utf8");
@@ -35,49 +41,30 @@
           printf("Connection failed: %s\n", $connection->connect_error);
           exit();
       }
-
+      $busqueda = $_POST['busquedaequipos'];
       //MAKING A SELECT QUERY
-      /* Consultas de selección que devuelven un conjunto de resultados */
-        $query="SELECT * from equipo";
+      /* Consultas de selección devuelven un conjunto de resultados */
+      $query="select nombre, foto from equipo
+        WHERE nombre LIKE '%$busqueda%'";
       if ($result = $connection->query($query)) {
-      ?>
-      <div class="row" id="añadirequipo">
-        <div class="col-md-3">
-          <a href="anadirequipo.php">
-            <img src="añadirequipo.svg" width="50" height="40">
-          </a>
-        </div>
-      </div>
-      <div class="row justify-content-center">
-        <div class="col-md-10">
-          <!-- PRINT THE TABLE AND THE HEADER -->
-          <table class="table table-hover table-bordered" id="tabla">
-          <thead>
-            <tr>
-              <th scope="col">IdEquipo</th>
-              <th scope="col">Nombre</th>
-              <th scope="col">Foto</th>
-              <th scope="col"></th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody>
-      <?php
-
-          //FETCHING OBJECTS FROM THE RESULT SET
-          //THE LOOP CONTINUES WHILE WE HAVE ANY OBJECT (Query Row) LEFT
-          while($obj = $result->fetch_object()) {
-              //PRINTING EACH ROW
-              echo "<tr>";
-                echo "<td>".$obj->idequipo."</td>";
-                echo "<td>".$obj->nombre."</td>";
-                echo "<td><img src='".$obj->foto."' width='60px' height='60px'id='fotojugador'/></td>";
-                echo "<td><a href='editarequipo.php?id=$obj->idequipo'><img src='editar2.png' width='35px' height='35px'/></a></td>";
-                echo "<td><a href='eliminarequipo.php?id=$obj->idequipo'><img src='borrar2.png' width='35px' height='35px'/></a></td>";
-                
-              echo "</tr>";
+        if ($result->num_rows==0){
+            echo "<div class='alert alert-danger alert-dismissable'>
+                    <button type='button' class='close' data-dismiss='alert'>&times;</button>
+                    Actualmente no tenemos ningún equipo de la categoría '$_POST[busquedaequipos]'
+                </div>";
+          }else{
+      echo "<div class='row justify-content-center' id='fotosbusqueda'>";
+          while($obj = $result->fetch_object()){   
+            echo "<div class='col-md-3'>";
+            echo "<div class='card'>";
+            echo "<div class='d-flex align-items-center' style='witdh:220px;height:270px'><img class='rounded mx-auto d-block img-fluid' width='220px' height='220px' src='".$obj->foto."'id='fotojugador'/></div>";
+            echo "<div class='card-body'>";
+            echo "<div class='card-title' id='textocards'><b>".$obj->nombre." </b></div>";
+            echo "</div>";
+            echo "</div>";                                                                                                                                                           
+            echo "</div>";
           }
-
+          echo "</div>";  
           
           //Free the result. Avoid High Memory Usages
           $result->close();
@@ -85,13 +72,9 @@
           unset($connection);
 
       } //END OF THE IF CHECKING IF THE QUERY WAS RIGHT
-
+    }
     ?>
-          </tbody>
-          </table>
-    </div>
-    </div>
-   
+          
     </div>
   </body>
 </html>

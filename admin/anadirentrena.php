@@ -146,6 +146,7 @@ header('Location:entrena.php');
 <?php endif ?>
 
 </div>
-    
+
+</div>  
 </body>
 </html>

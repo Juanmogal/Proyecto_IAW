@@ -123,7 +123,6 @@
     }
    
     if (isset($_FILES['image']) && $_FILES['image']['name']!=''){
-      var_dump($_FILES);
       // INSERTAR IMAGEN
         //Temp file. Where the uploaded file is stored temporary
         $tmp_file = $_FILES['image']['tmp_name'];
@@ -150,7 +149,6 @@
           echo "Only JPG, JPEG, PNG & GIF files are allowed";
         }
         if ($valid) {
-          var_dump($target_file);
           //Put the file in its place
           move_uploaded_file($tmp_file, $target_file);
           echo "PRODUCT ADDED";
@@ -164,7 +162,7 @@
       }    
     else{
       $query="UPDATE entrenador SET nombre='".$_POST['nom']."',apellidos='".$_POST['ape']."',
-    dni='".$_POST['dni']."',fechanacimiento='".$_POST['fec']."',numerolicencia='".$_POST['num']."',telefono='".$_POST['tfno']."',direccion='".$_POST['dir']."' WHERE idjugador = '".$_POST['identrenador']."'";
+    dni='".$_POST['dni']."',fechanacimiento='".$_POST['fec']."',numerolicencia='".$_POST['num']."',telefono='".$_POST['tfno']."',direccion='".$_POST['dir']."' WHERE identrenador = '".$_POST['identrenador']."'";
     }
 echo $query;
     

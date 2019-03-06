@@ -27,3 +27,23 @@
     position:absolute;
     
 }
+#botonbuscar{
+    color: #FFC312;
+    border-color: #FFC312;
+}
+#botonbuscar:hover{
+    background-color: black;
+}
+#barrabusqueda{
+    border-color: #FFC312;
+    color: black;
+}
+#barra{
+    margin-right: 0px;
+}
+#fotosbusqueda{
+    margin-top:20px;
+}
+#flechaatras{
+    margin-left: 0px;
+}

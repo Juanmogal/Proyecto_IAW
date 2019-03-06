@@ -24,12 +24,14 @@
     include_once "../header/header.php";
 ?>
 <!--Fin include cabecera-->
-<div class="row justify-content-end">
+<div class="row justify-content-end" id="barra">
     <div clas="col-md-6">
-        <form method='post' action="buscarjugadores.php">
-            <input type="text" name="busqueda"/>
-            <button type='submit'>Buscar</button>
-        </form>
+      <nav class="navbar navbar-light bg-light">
+        <form method="post" class="form-inline" action="buscarequipos.php">
+            <input class="form-control mr-sm-2" type="text" placeholder="Filtrar por categoría..." aria-label="Search" id="barrabusqueda" name="busquedaequipos">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="botonbuscar">Buscar</button>
+          </form>
+      </nav>
     </div>
 </div>
     <?php

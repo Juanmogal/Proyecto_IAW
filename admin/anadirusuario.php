@@ -125,7 +125,7 @@
 if ($result = $connection->query($query)) {
     
 }
-#header('Location:usuarios.php');
+header('Location:usuarios.php');
 ?>
 
 <?php endif ?>

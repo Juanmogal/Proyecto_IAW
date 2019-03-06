@@ -1,5 +1,5 @@
 <?php
-      include_once "../session/sessionadmin.php";
+      include_once "../session/sessionusuario.php";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -21,11 +21,13 @@
 <div class="container"> <!-- Inicio container -->
 <!--Include cabecera-->
 <?php
-    include_once "../header/headeradmin.php";
+    include_once "../header/header.php";
 ?>
 <!--Fin include cabecera-->
-    <?php
 
+
+    <?php
+     $busqueda = $_POST['busqueda'];
       //CREATING THE CONNECTION
       $connection = new mysqli("localhost", "juan", "2asirtriana", "cbmontellano");
       $connection->set_charset("utf8");
@@ -36,29 +38,28 @@
           exit();
       }
 
+    
       //MAKING A SELECT QUERY
       /* Consultas de selección que devuelven un conjunto de resultados */
-        $query="SELECT * from equipo";
+        $query="SELECT * from jugador WHERE nombre LIKE '%$busqueda%'";
       if ($result = $connection->query($query)) {
+        if ($result->num_rows==0){
+            echo "No existen jugadores en nuestro club con el nombre de ".$_POST['busqueda'];
+        } else{
       ?>
-      <div class="row" id="añadirequipo">
-        <div class="col-md-3">
-          <a href="anadirequipo.php">
-            <img src="añadirequipo.svg" width="50" height="40">
-          </a>
-        </div>
-      </div>
       <div class="row justify-content-center">
-        <div class="col-md-10">
+      <div class="col-md-10"> 
           <!-- PRINT THE TABLE AND THE HEADER -->
           <table class="table table-hover table-bordered" id="tabla">
           <thead>
             <tr>
-              <th scope="col">IdEquipo</th>
+              <th scope="col">IdJugador</th>
               <th scope="col">Nombre</th>
-              <th scope="col">Foto</th>
-              <th scope="col"></th>
-              <th scope="col"></th>
+              <th scope="col">Apellidos</th>
+              <th scope="col">DNI</th>
+              <th scope="col">Fecha nacimiento</th>
+              <th scope="col">Telefono</th>
+              <th scope="col">Direccion</th>
             </tr>
           </thead>
           <tbody>
@@ -66,16 +67,19 @@
 
           //FETCHING OBJECTS FROM THE RESULT SET
           //THE LOOP CONTINUES WHILE WE HAVE ANY OBJECT (Query Row) LEFT
+          
           while($obj = $result->fetch_object()) {
               //PRINTING EACH ROW
               echo "<tr>";
-                echo "<td>".$obj->idequipo."</td>";
+                echo "<td>".$obj->idjugador."</td>";
                 echo "<td>".$obj->nombre."</td>";
-                echo "<td><img src='".$obj->foto."' width='60px' height='60px'id='fotojugador'/></td>";
-                echo "<td><a href='editarequipo.php?id=$obj->idequipo'><img src='editar2.png' width='35px' height='35px'/></a></td>";
-                echo "<td><a href='eliminarequipo.php?id=$obj->idequipo'><img src='borrar2.png' width='35px' height='35px'/></a></td>";
-                
+                echo "<td>".$obj->apellidos."</td>";
+                echo "<td>".$obj->dni."</td>";
+                echo "<td>".$obj->fechanacimiento."</td>";
+                echo "<td>".$obj->telefono."</td>";
+                echo "<td>".$obj->direccion."</td>";
               echo "</tr>";
+            
           }
 
           
@@ -85,13 +89,15 @@
           unset($connection);
 
       } //END OF THE IF CHECKING IF THE QUERY WAS RIGHT
-
+    }
     ?>
-          </tbody>
-          </table>
+    </tbody>
+    </table>
     </div>
     </div>
-   
+    
+    
+
     </div>
   </body>
 </html>

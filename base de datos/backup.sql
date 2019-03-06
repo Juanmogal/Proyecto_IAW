@@ -29,9 +29,9 @@ CREATE TABLE `entrena` (
   PRIMARY KEY (`idtemporada`,`identrenador`,`idequipo`),
   KEY `identrenador` (`identrenador`),
   KEY `idequipo` (`idequipo`),
-  CONSTRAINT `entrena_ibfk_1` FOREIGN KEY (`idtemporada`) REFERENCES `temporada` (`idtemporada`) ON UPDATE CASCADE ON DELETE CASCADE,
-  CONSTRAINT `entrena_ibfk_2` FOREIGN KEY (`identrenador`) REFERENCES `entrenador` (`identrenador`) ON UPDATE CASCADE ON DELETE CASCADE,
-  CONSTRAINT `entrena_ibfk_3` FOREIGN KEY (`idequipo`) REFERENCES `equipo` (`idequipo`) ON UPDATE CASCADE ON DELETE CASCADE
+  CONSTRAINT `entrena_ibfk_1` FOREIGN KEY (`idtemporada`) REFERENCES `temporada` (`idtemporada`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `entrena_ibfk_2` FOREIGN KEY (`identrenador`) REFERENCES `entrenador` (`identrenador`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `entrena_ibfk_3` FOREIGN KEY (`idequipo`) REFERENCES `equipo` (`idequipo`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -41,7 +41,7 @@ CREATE TABLE `entrena` (
 
 LOCK TABLES `entrena` WRITE;
 /*!40000 ALTER TABLE `entrena` DISABLE KEYS */;
-INSERT INTO `entrena` VALUES (3,1,2),(1,2,3),(2,3,1);
+INSERT INTO `entrena` VALUES (3,1,13),(3,8,14),(2,9,17),(3,10,18);
 /*!40000 ALTER TABLE `entrena` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -61,8 +61,9 @@ CREATE TABLE `entrenador` (
   `numerolicencia` int(10) NOT NULL,
   `telefono` varchar(9) DEFAULT NULL,
   `direccion` varchar(100) DEFAULT NULL,
+  `foto` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`identrenador`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,7 +72,7 @@ CREATE TABLE `entrenador` (
 
 LOCK TABLES `entrenador` WRITE;
 /*!40000 ALTER TABLE `entrenador` DISABLE KEYS */;
-INSERT INTO `entrenador` VALUES (1,'Juan Diego','Perez Jimenez','12345678A','1989-01-25',2147483647,'654321987','Betis,34'),(2,'','','23456789B','0000-00-00',0,'',''),(3,'Higinio David','Jurado Palomino','345678901','1969-10-11',2147483647,'666252514','San Jacinto,44');
+INSERT INTO `entrenador` VALUES (1,'Juan Diego','Perez Jimenez','12345678A','1989-01-25',2147483647,'654321987','Betis,34','../img/entrenadores/jd.jpeg'),(8,'Sergio ','Scariolo','12345678A','1963-04-06',12345,'669885740','Calle triana','../img/entrenadores/entrenador1.jpg'),(9,'Pablo','Laso','12345678B','1958-11-01',23456,'669330254','Madrid','../img/entrenadores/entrenador2.jpg'),(10,'Alfonso Alonso','Blanco','12345678C','1971-01-21',34567,'632587410','Barcelona','../img/entrenadores/entrenador3.jpg');
 /*!40000 ALTER TABLE `entrenador` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -85,8 +86,9 @@ DROP TABLE IF EXISTS `equipo`;
 CREATE TABLE `equipo` (
   `idequipo` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) NOT NULL,
+  `foto` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`idequipo`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -95,7 +97,7 @@ CREATE TABLE `equipo` (
 
 LOCK TABLES `equipo` WRITE;
 /*!40000 ALTER TABLE `equipo` DISABLE KEYS */;
-INSERT INTO `equipo` VALUES (1,'Alevin masculino'),(2,'Cadete femenino'),(3,'Juvenil masculino');
+INSERT INTO `equipo` VALUES (13,'Alevin Masculino','../img/equipos/equipo1.jpg'),(14,'Infantil Masculino','../img/equipos/equipo2.jpg'),(15,'Infantil Femenino','../img/equipos/equipo3.jpg'),(16,'Cadete Masculino','../img/equipos/equipo4.jpg'),(17,'Juvenil Masculino','../img/equipos/equipo5.png'),(18,'Senior Masculino','../img/equipos/equipo6.jpg'),(19,'Senior Femenino','../img/equipos/equipo7.jpg');
 /*!40000 ALTER TABLE `equipo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -114,8 +116,9 @@ CREATE TABLE `jugador` (
   `fechanacimiento` date NOT NULL,
   `telefono` varchar(9) DEFAULT NULL,
   `direccion` varchar(100) DEFAULT NULL,
+  `foto` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`idjugador`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -124,7 +127,7 @@ CREATE TABLE `jugador` (
 
 LOCK TABLES `jugador` WRITE;
 /*!40000 ALTER TABLE `jugador` DISABLE KEYS */;
-INSERT INTO `jugador` VALUES (1,'Juan','Moreno Galbarro','47426785A','1997-09-05','675908260','Carlos III,10'),(2,'Daniel','Garcia Pelaez','48974125B','1997-04-10','636985220','Segundo Centenario,54'),(3,'manue','lebrato','53210879J','2019-01-10','666666666','calle triana');
+INSERT INTO `jugador` VALUES (12,'Juan','Moreno Galbarro','89765412A','1997-05-05','613558741','Calle Tambre, 3','../img/jugadores/jugador1.png'),(13,'Ismael','Gomez Luque','23987651C','1998-08-02','600000000','los palacios y villafranca','../img/jugadores/jugador2.png'),(16,'Manuel ','Garcia Lebrato','58967412H','1995-05-26','633200589','Mairena','../img/jugadores/jugador3.png'),(17,'Ivan','Triguero Curado','55896203D','1999-02-09','675986231','los palacios y villafranca','../img/jugadores/jugador4.png'),(18,'Carlos ','De Cires','12349876F','1992-09-08','669332001','Hontoria del Pinar','../img/jugadores/jugador5.png');
 /*!40000 ALTER TABLE `jugador` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -143,9 +146,9 @@ CREATE TABLE `pertenece` (
   PRIMARY KEY (`idjugador`,`idtemporada`,`idequipo`),
   KEY `idtemporada` (`idtemporada`),
   KEY `idequipo` (`idequipo`),
-  CONSTRAINT `pertenece_ibfk_1` FOREIGN KEY (`idjugador`) REFERENCES `jugador` (`idjugador`) ON UPDATE CASCADE ON DELETE CASCADE,
-  CONSTRAINT `pertenece_ibfk_2` FOREIGN KEY (`idtemporada`) REFERENCES `temporada` (`idtemporada`) ON UPDATE CASCADE ON DELETE CASCADE,
-  CONSTRAINT `pertenece_ibfk_3` FOREIGN KEY (`idequipo`) REFERENCES `equipo` (`idequipo`) ON UPDATE CASCADE ON DELETE CASCADE
+  CONSTRAINT `pertenece_ibfk_1` FOREIGN KEY (`idjugador`) REFERENCES `jugador` (`idjugador`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `pertenece_ibfk_2` FOREIGN KEY (`idtemporada`) REFERENCES `temporada` (`idtemporada`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `pertenece_ibfk_3` FOREIGN KEY (`idequipo`) REFERENCES `equipo` (`idequipo`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -155,7 +158,7 @@ CREATE TABLE `pertenece` (
 
 LOCK TABLES `pertenece` WRITE;
 /*!40000 ALTER TABLE `pertenece` DISABLE KEYS */;
-INSERT INTO `pertenece` VALUES (1,2,3,5),(2,3,1,8),(3,1,2,10);
+INSERT INTO `pertenece` VALUES (12,3,13,10),(13,2,14,5),(16,1,17,8),(17,3,18,13),(18,3,18,9);
 /*!40000 ALTER TABLE `pertenece` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -204,7 +207,7 @@ CREATE TABLE `usuario` (
   `password` varchar(100) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`idusuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -213,8 +216,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'fdfds','fdsfdf','45855554a','2019-01-09','666666666','gfgfgdf','usuario','12345','juan_moreno_g@hotmail.com'),(2,'juan','moreno','45855554a','2019-01-17','688888888','gfgfgdf','usuario','12345','juan_moreno_g@hotmail.com'),(3,'juan','moreno','45855554a','2019-01-17','688888888','gfgfgdf','usuario','1','juan_moreno_g@hotmail.com'),(4,'pepe','moreno','45855554a','2019-01-17','688888888','gfgfgdf','usuario','1','juan_moreno_g@hotmail.com'),(5,'pepe','moreno','45855554a','2019-01-17','688888888','gfgfgdf','usuario','1','juan_moreno_g@hotmail.com'),
-(6,'Manue','Lebrato','4455','2019-01-11','666666666','gfgfgdf','usuario','12345','lebrato@gmail.com');
+INSERT INTO `usuario` VALUES (7,'juan','moreno','123456789','2019-01-09','666666666','jdsjdfsdf','admin','827ccb0eea8a706c4c34a16891f84e7b','admin@admin'),(8,'juan','moreno','45855554a','2019-03-30','666666666','calle triana','usuario','827ccb0eea8a706c4c34a16891f84e7b','juan@gmail.com'),(11,'manue','garcia','329439','2019-03-09','666666666','calle triana','usuario','827ccb0eea8a706c4c34a16891f84e7b','lebrato@gmail'),(12,'ivancito','gomez','45855554a','2019-03-22','666666663','calle betis','admin','827ccb0eea8a706c4c34a16891f84e7b','ivan@gmail'),(14,'carmen','carmen','65854485v','2019-01-01','5585666','sssss','usuario','827ccb0eea8a706c4c34a16891f84e7b','carmen@carmen');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -227,4 +229,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-01-22  8:06:36
+-- Dump completed on 2019-03-06 12:38:09

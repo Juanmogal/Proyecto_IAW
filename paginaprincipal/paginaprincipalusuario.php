@@ -10,6 +10,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
   <!--Enlace con CSS-->
   <link rel="stylesheet" type="text/css" href="../header/header.css">
+  <link rel="stylesheet" type="text/css" href="../footer/footer.css">
   <link rel="stylesheet" type="text/css" href="index.css">
   <link rel="stylesheet" type="text/css" href="../usuario/style.css">
   <!--Libreria font-awesome-->
@@ -107,7 +108,7 @@
 
                                             <!-- meta title -->
                                             <div class="news-meta">
-                                                <span class="news-author">by <a class="text-white font-weight-bold" href="../category/author.html">Juan Moreno</a></span>
+                                                <span class="news-author">by <a class="text-white font-weight-bold" href="">Juan Moreno</a></span>
                                                 <span class="news-date">Oct 22, 2019</span>
                                             </div>
                                         </div>
@@ -140,7 +141,7 @@
 
                                             <!-- meta title -->
                                             <div class="news-meta">
-                                                <span class="news-author">by <a class="text-white font-weight-bold" href="../category/author.html">Juan Moreno</a></span>
+                                                <span class="news-author">by <a class="text-white font-weight-bold" href="">Juan Moreno</a></span>
                                                 <span class="news-date">Jun 14, 2019</span>
                                             </div>
                                         </div>
@@ -173,7 +174,7 @@
 
                                             <!-- meta title -->
                                             <div class="news-meta">
-                                                <span class="news-author">by <a class="text-white font-weight-bold" href="../category/author.html">Juan Moreno</a></span>
+                                                <span class="news-author">by <a class="text-white font-weight-bold" href="">Juan Moreno</a></span>
                                                 <span class="news-date">Dic 2, 2018</span>
                                             </div>
                                         </div>
@@ -206,7 +207,7 @@
 
                                             <!-- meta title -->
                                             <div class="news-meta">
-                                                <span class="news-author">by <a class="text-white font-weight-bold" href="../category/author.html">Juan Moreno</a></span>
+                                                <span class="news-author">by <a class="text-white font-weight-bold" href="">Juan Moreno</a></span>
                                                 <span class="news-date">Mar 9, 2019</span>
                                             </div>
                                         </div>
@@ -251,7 +252,7 @@
                                     <!--title-->
                                     <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
                                         <!-- category -->
-                                        <a class="p-1 badge badge-primary rounded-0" href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">Escuelas Deportivas</a>
+                                        <a class="p-1 badge badge-primary rounded-0" href="">Escuelas Deportivas</a>
                                     </div>
                                     <!--end title-->
                                 </div>
@@ -276,7 +277,7 @@
                                     <!--title-->
                                     <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
                                         <!-- category -->
-                                        <a class="p-1 badge badge-primary rounded-0" href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">Baloncesto Masculino</a>
+                                        <a class="p-1 badge badge-primary rounded-0" href="">Baloncesto Masculino</a>
                                     </div>
                                     <!--end title-->
                                 </div>
@@ -301,7 +302,7 @@
                                     <!--title-->
                                     <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
                                         <!-- category -->
-                                        <a class="p-1 badge badge-primary rounded-0" href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">Baloncesto Femenino</a>
+                                        <a class="p-1 badge badge-primary rounded-0" href="">Baloncesto Femenino</a>
                                     </div>
                                     <!--end title-->
                                 </div>
@@ -326,7 +327,7 @@
                                     <!--title-->
                                     <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
                                         <!-- category -->
-                                        <a class="p-1 badge badge-primary rounded-0" href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">Nuestro club</a>
+                                        <a class="p-1 badge badge-primary rounded-0" href="">Nuestro club</a>
                                     </div>
                                     <!--end title-->
                                 </div>
@@ -341,7 +342,9 @@
             <!--END SECTION-->
         </div>
     </div>
-    
+    <?php
+    include_once "../footer/footer.php";
+    ?>
 </div><!-- fin container -->
 
 </body>

@@ -24,7 +24,16 @@
     include_once "../header/header.php";
 ?>
 <!--Fin include cabecera-->
-
+<div class="row justify-content-end" id="barra">
+    <div clas="col-md-6">
+      <nav class="navbar navbar-light bg-light">
+        <form method="post" class="form-inline" action="buscarentrenadores.php">
+            <input class="form-control mr-sm-2" type="text" placeholder="Filtrar por nombre..." aria-label="Search" id="barrabusqueda" name="busquedaentrenadores">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="botonbuscar">Buscar</button>
+          </form>
+      </nav>
+    </div>
+</div>
     <?php
 
       //CREATING THE CONNECTION
@@ -39,11 +48,12 @@
     
       //MAKING A SELECT QUERY
       /* Consultas de selección devuelven un conjunto de resultados */
-        $query="select ent.nombre as nombreentrenador, ent.apellidos as apellidosentrenador, e.nombre as equipo, ent.foto as foto, t.nombre as temporada
-        from equipo as e
-        join entrena as en on e.idequipo = en.idequipo
-        right join entrenador as ent on en.identrenador = ent.identrenador
-        join temporada as t on en.idtemporada = t.idtemporada";
+      $query="select ent.nombre as nombreentrenador, ent.apellidos as apellidosentrenador, e.nombre as equipo, ent.foto as foto, t.nombre as temporada
+      from equipo as e
+      join entrena as en on e.idequipo = en.idequipo
+      right join entrenador as ent on en.identrenador = ent.identrenador
+      join temporada as t on en.idtemporada = t.idtemporada";
+      
       if ($result = $connection->query($query)) {
       echo "<div class='row justify-content-center'>";
           while($obj = $result->fetch_object()){   

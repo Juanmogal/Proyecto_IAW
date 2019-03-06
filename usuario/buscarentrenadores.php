@@ -27,7 +27,7 @@
 <!--Fin include cabecera-->
 <div class="row justify-content-start" id="flechaatras">
     <div clas="col-md-6">
-      <a href="jugadores.php"><img src="back.png" width="40px" height="40px" id="fotoflecha"/> Volver atrás</a>
+      <a href="entrenadores.php"><img src="back.png" width="40px" height="40px" id="fotoflecha"/> Volver atrás</a>
     </div>
 </div>
     <?php
@@ -41,30 +41,30 @@
           printf("Connection failed: %s\n", $connection->connect_error);
           exit();
       }
-      $busqueda = $_POST['busquedajugadores'];
+      $busqueda = $_POST['busquedaentrenadores'];
       //MAKING A SELECT QUERY
       /* Consultas de selección devuelven un conjunto de resultados */
-        $query="select  J.nombre as nombrejugador, J.apellidos as apellidosjugador, E.nombre as equipo, P.numerocamiseta as dorsal, J.foto as fotojugador
-        FROM equipo AS E
-        JOIN pertenece AS P ON E.idequipo = P.idequipo
-        RIGHT JOIN jugador AS J ON P.idjugador = J.idjugador
-        WHERE J.nombre LIKE '%$busqueda%'";
+      $query="select ent.nombre as nombreentrenador, ent.apellidos as apellidosentrenador, e.nombre as equipo, ent.foto as foto, t.nombre as temporada
+      from equipo as e
+      join entrena as en on e.idequipo = en.idequipo
+      right join entrenador as ent on en.identrenador = ent.identrenador
+      join temporada as t on en.idtemporada = t.idtemporada
+      WHERE ent.nombre LIKE '%$busqueda%'";
       if ($result = $connection->query($query)) {
         if ($result->num_rows==0){
           echo "<div class='alert alert-danger alert-dismissable'>
                     <button type='button' class='close' data-dismiss='alert'>&times;</button>
-                    No existe ningún jugador en nuestro club llamado $_POST[busquedajugadores]
+                    No existe ningún entrenador en nuestro club llamado $_POST[busquedaentrenadores]
                 </div>";
         }else{
       echo "<div class='row justify-content-center' id='fotosbusqueda'>";
           while($obj = $result->fetch_object()){   
             echo "<div class='col-md-3'>";
             echo "<div class='card'>";
-            echo "<div class='d-flex align-items-center' style='witdh:220px;height:270px'><img class='rounded mx-auto d-block img-fluid' width='220px' height='220px' src='".$obj->fotojugador."'id='fotojugador'/></div>";
+            echo "<div class='d-flex align-items-center' style='witdh:220px;height:270px'><img class='rounded mx-auto d-block img-fluid' width='190px' height='190px' src='".$obj->foto."'id='fotojugador'/></div>";
             echo "<div class='card-body'>";
-            echo "<div class='card-title' id='textocards'><b>".$obj->nombrejugador." ".$obj->apellidosjugador."</b></div>";
+            echo "<div class='card-title' id='textocards'><b>".$obj->nombreentrenador." ".$obj->apellidosentrenador."</b></div>";
             echo "<div class='card-title' id='textocards'>".$obj->equipo."</div>";
-            echo "<div class='card-title' id='textocards'>".$obj->dorsal."</div>";
             echo "</div>";
             echo "</div>";                                                                                                                                                           
             echo "</div>";

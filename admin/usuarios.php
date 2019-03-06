@@ -51,7 +51,7 @@
         </div>
       </div>
       <div class="row justify-content-center">
-      <div class="col-md-14"> 
+      <div class="col-md-12"> 
           <!-- PRINT THE TABLE AND THE HEADER -->
           <table class="table table-hover table-bordered" id="tablausuarios">
           <thead>
@@ -109,7 +109,7 @@
     </div>
     </div>
     
-    
+   
 
     </div>
   </body>
